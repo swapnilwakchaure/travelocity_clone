@@ -1,0 +1,16 @@
+.cont{
+    border: 1px solid black;
+    height: 20rem;
+}
+#Bimage{
+    height: 18.5rem;
+    width: 60%;
+}
+.G1{
+    display: grid;
+    grid-template-columns: repeat(2,2fr);
+}
+#gimages{
+    height: 9.2rem;
+    
+}
