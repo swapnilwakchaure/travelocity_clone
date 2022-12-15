@@ -1,0 +1,17 @@
+#Rcards{
+    display:grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    grid-gap: 5px;
+    margin-top: 10px;
+}
+#Rcards>div{
+width: 330px;
+height: auto;
+border:1px solid red;
+margin-top: 5px;
+border-radius: 8px;
+}
+#Rcards>div>img{
+    
+    border-radius: 5px;
+}
