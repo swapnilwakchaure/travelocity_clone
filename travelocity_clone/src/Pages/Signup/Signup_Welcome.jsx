@@ -1,5 +1,5 @@
 import React from "react";
-import logoWhite from "../../assets/TRAVELGO-(2).png";
+import logoWhite from "../../Assets/travelgo2.png";
 import { FaArrowLeft } from "react-icons/fa";
 import {Link as ReachLink} from 'react-router-dom'
 import {
