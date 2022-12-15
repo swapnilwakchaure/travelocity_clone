@@ -4,6 +4,7 @@ import { FaArrowLeft } from "react-icons/fa";
 import { BiShowAlt, BiHide } from "react-icons/bi";
 import { HiCheckCircle } from "react-icons/hi";
 import { GoPrimitiveDot } from "react-icons/go";
+import {Link as ReachLink} from 'react-router-dom'
 import "./Signup.css";
 import {
   Checkbox,
@@ -11,18 +12,14 @@ import {
   InputRightElement,
   InputGroup,
   VStack,
-  HStack,
   Text,
   Input,
-  Spacer,
   Flex,
   Link,
   Progress,
   ListItem,
   ListIcon,
-  UnorderedList,
   Box,
-  Show,
   List,
 } from "@chakra-ui/react";
 import { useDispatch } from "react-redux";
@@ -35,10 +32,10 @@ import {
 import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
 import app from "./../../Firebase/firebase";
 import { saveDataLocal } from "./../../LocalStorage/usernamePassword";
+import {useNavigate} from 'react-router-dom'
 
 const Login = () => {
   const dispatch = useDispatch();
-  const [count, setcount] = useState(0);
   const [email, setemail] = useState("");
   const [password, setpassword] = useState("");
   const [first, setfirst] = useState("");
@@ -47,6 +44,8 @@ const Login = () => {
   const [symbolNum, setsymbolNum] = useState(0);
   const [strengthCount, setstrengthCount] = useState(0);
   const [checked, setchecked] = useState(true);
+  
+const navigate = useNavigate();
   const handleClick = () => setShow(!show);
   const handleSubmit = () => {
     const auth = getAuth(app);
@@ -62,9 +61,14 @@ const Login = () => {
         };
         dispatch(loginRequest());
         dispatch(loginSuccess(payload));
-        saveDataLocal("userDetails", { email, password });
+        if(checked){
+
+          saveDataLocal("userDetails", { email, password });
+        }
+        navigate('/signup/welcome')
       })
       .catch((error) => {
+        console.log(error);
         const errorCode = error.code;
         const errorMessage = error.message;
         dispatch(loginError());
@@ -84,10 +88,6 @@ const Login = () => {
     let tempCount = ((alphaNum * 30) + (symbolNum * 30) + (passTemp * 40));
     setstrengthCount(tempCount);
   }, [password.length,strengthCount]);
-
-  console.log(alphaNum, "alphaNum");
-  console.log(symbolNum, "symbolNum");
-  console.log(strengthCount, "strengthCount");
   return (
     <div>
       <div className="loginNavbar">
@@ -115,7 +115,7 @@ const Login = () => {
               onChange={(e) => setemail(e.target.value)}
               placeholder="Email address"
               size="lg"
-              width="100%"
+              width="100%" type='email'
             />
             <Input
               value={first}
@@ -156,12 +156,7 @@ const Login = () => {
                 width="100%"
                 value={strengthCount}
                 size="sm"
-                colorScheme={
-                  strengthCount >= 60
-                    ? "yellow"
-                    : strengthCount == 100
-                    ? "green"
-                    : "white"
+                colorScheme={(strengthCount >= 0 && strengthCount < 30)? "red":(strengthCount >= 30 && strengthCount <= 70)? "yellow": (strengthCount > 70 && strengthCount <= 100)? "green": null
                 }
               />
             </Flex>
@@ -229,14 +224,11 @@ const Login = () => {
           <Box py="0.8em" color="#585858">
             <Text textAlign="left" fontSize="xs">
               Already have an account?{" "}
-              <Link color="#0f5bb8" href="#">
+              <Link color="#0f5bb8" to='/login' as={ReachLink}>
                 Sign in
-              </Link>{" "}
+              </Link>
             </Text>
           </Box>
-          {/* <Text color="#585858" fontSize="xs">
-            or continue with
-          </Text> */}
         </VStack>
       </div>
     </div>
