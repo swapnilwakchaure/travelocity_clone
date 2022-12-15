@@ -5,13 +5,13 @@ const Login = () => {
   return (
     <div>
       <Box border='2px' borderColor='black'>
-        <Spacer />
+        <Vstack>
         <Image border='2px' borderColor='black'
           objectFit="cover"
           src={logoWhite}
           alt="Dan Abramov"
         />
-        <Spacer />
+        </Vstack>
       </Box>
     </div>
   );

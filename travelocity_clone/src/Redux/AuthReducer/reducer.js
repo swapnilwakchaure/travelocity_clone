@@ -3,6 +3,7 @@ import { USER_LOGIN_ERROR, USER_LOGIN_REQUEST, USER_LOGIN_SUCCESS } from './acti
 
 const initialVal = {
     isAuth:false,
+    username:'',
     token:'',
     isAuthLoading:false,
     isAuthError:false
@@ -15,7 +16,7 @@ export const authReducer = (state=initialVal,action) =>{
             return{...state,isAuthLoading:true}
         }
         case USER_LOGIN_SUCCESS:{
-            return{...state,isAuthLoading:false,isAuth:true,token:payload}
+            return{...state,isAuthLoading:false,isAuth:true,token:payload.token,username:payload.first}
         }
         case USER_LOGIN_ERROR:{
             return{...state,isAuthError:true,isAuth:false,isAuthLoading:false}
