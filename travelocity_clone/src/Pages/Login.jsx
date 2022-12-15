@@ -1,6 +1,7 @@
 import React from "react";
 import { Box, Image, Spacer } from "@chakra-ui/react";
-import logoWhite from '../assets/TRAVELGO-(2).png'
+import logoWhite from '../Assets/TRAVELGO-(2).png';
+
 const Login = () => {
   return (
     <div>
