@@ -1,44 +1,69 @@
-import React, { useEffect } from "react";
-import {getData} from '../Redux/action'
+import React, { useEffect, useState } from "react";
+import {getData} from './../../Redux/GetDataReducer/action'
 import { useDispatch, useSelector } from "react-redux";
-import SingleProduct from "./SingleProduct";
-import Filter from "./Filter";
-import { useSearchParams } from "react-router-dom";
-import Search from "./Search";
+import SingleProduct from "./../../Components/ProductComponents/SingleProduct";
+import Filter from "./../../Components/ProductComponents/Filter";
+import { useSearchParams,useLocation } from "react-router-dom";
+import Search from "./../../Components/ProductComponents/Search";
+import Map from "./../../Components/ProductComponents/Map";
+import { Box, Flex } from "@chakra-ui/react";
 
  function Products(){
     const dispatch = useDispatch()
-    const hotel = useSelector(store=>store.hotel)
+    const hotel = useSelector(store=>store.GetDataReducer.hotel)
+    let location = useLocation()
     const [searchParams] = useSearchParams()
+    const [sorting,setSorting] = useState('')
+    const [ordering,setOrdering] = useState('')
     
 
     useEffect(()=> {
-        if(hotel.length===0){
-            const sortBy = searchParams.get('sort')
+        if(location || hotel.length===0){
+            const sortBy = searchParams.get('sort') || ""
+            if(sortBy.includes('starRating') && sortBy.includes('asc')){
+                setSorting('starRating')
+                setOrdering('asc')
+            }else if(sortBy.includes('starRating') && sortBy.includes('desc')){
+                setSorting('starRating')
+                setOrdering('desc')
+            }else if (sortBy.includes('price') && sortBy.includes('asc')){
+                setSorting('price')
+                setOrdering('asc')
+            }else if(sortBy.includes('price') && sortBy.includes('desc')){
+                setSorting('price')
+                setOrdering('desc')
+            }
             const getParams = {
                 params:{
                     starRating:searchParams.getAll('starRating'),
-                    _sort:sortBy && "starRating"
+                    _sort:sorting ,
+                    _order:ordering,
                 }
             }
             dispatch(getData(getParams))
         }
-    },[hotel.length,dispatch])
-
+    },[hotel.length,dispatch, location.search])
+    
     return (
         <div>
-            <div>
-                <iframe width="300" height="200" id="gmap_canvas" src="https://maps.google.com/maps?q=Delhi&t=&z=13&ie=UTF8&iwloc=&output=embed" frameBorder="0" scrolling="no" marginHeight="0" marginWidth="0">
-                </iframe>
-            </div>
-            <Search/>
-            <Filter/>
+            <Flex  gap='2'>
+                <Box w='24%' border='1px solid black'>
+                    <div>
+                        <Map/>
+                        <Search/>
+                        <Filter/>    
+                    </div>
+                </Box>
+                <Box w='60%' border='1px solid black'>
+                    <div>
+                        {hotel.length>0 && hotel.map(item=>{
+                            return <SingleProduct key={item.hotelId} item={item}/>
+                        })}
+                    </div>
+                </Box>
             
-            <div>
-                {hotel.length>0 && hotel.map(item=>{
-                    return <SingleProduct key={item.hotelId} item={item}/>
-                })}
-            </div>
+            </Flex>
+            
         </div>      
     )
  }
