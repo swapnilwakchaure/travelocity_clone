@@ -2,66 +2,54 @@ import React, { useEffect, useState } from "react";
 import logoWhite from "../../assets/TRAVELGO-(2).png";
 import { FaArrowLeft } from "react-icons/fa";
 import { BiShowAlt, BiHide } from "react-icons/bi";
-import { HiCheckCircle } from "react-icons/hi";
-import { GoPrimitiveDot } from "react-icons/go";
+import { Link as ReachLink, useNavigate } from "react-router-dom";
 import {
   Checkbox,
   Button,
   InputRightElement,
   InputGroup,
   VStack,
-  HStack,
   Text,
   Input,
-  Spacer,
   Flex,
   Link,
-  Progress,
-  ListItem,
-  ListIcon,
-  UnorderedList,
   Box,
-  Show,
-  List,
 } from "@chakra-ui/react";
-import { useDispatch } from "react-redux";
-import { hasAlphaNum, hasSymbol } from "./../../utils/utilis";
 import {
-  loginRequest,
-  loginSuccess,
-  loginError,
-} from "./../../Redux/AuthReducer/action";
-import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
+  getAuth,
+  signInWithEmailAndPassword,
+} from "firebase/auth";
 import app from "./../../Firebase/firebase";
 import { saveDataLocal } from "./../../LocalStorage/usernamePassword";
 
 const Login = () => {
-  const dispatch = useDispatch();
-  const [count, setcount] = useState(0);
+  const navigate = useNavigate()
   const [email, setemail] = useState("");
   const [password, setpassword] = useState("");
   const [show, setShow] = useState(false);
-  const [alphaNum, setalphaNum] = useState(0);
-  const [symbolNum, setsymbolNum] = useState(0);
-  const [strengthCount, setstrengthCount] = useState(0);
   const [checked, setchecked] = useState(true);
   const handleClick = () => setShow(!show);
   const handleSubmit = () => {
+    const auth = getAuth(app);
+    signInWithEmailAndPassword(auth, email, password)
+      .then((userCredential) => {
+        const user = userCredential.user;
+        if(checked){
 
+          saveDataLocal("userDetails", { email, password });
+        }
+        navigate('/')
+        
+      })
+      .catch((error) => {
+        console.log(error);
+        const errorCode = error.code;
+        const errorMessage = error.message;
+      });
   };
   const passwordChangeFn = (e) => {
     setpassword(e.target.value);
   };
-  useEffect(() => {
-    let passTemp = 0;
-    if (password.length > 7) {
-      passTemp = 1;
-    }
-    hasAlphaNum.test(password) == true ? setalphaNum(1) : setalphaNum(0);
-    hasSymbol.test(password) == true ? setsymbolNum(1) : setsymbolNum(0);
-    let tempCount = ((alphaNum * 30) + (symbolNum * 30) + (passTemp * 40));
-    setstrengthCount(tempCount);
-  }, [password.length,strengthCount]);
   return (
     <div>
       <div className="loginNavbar">
@@ -89,7 +77,7 @@ const Login = () => {
               onChange={(e) => setemail(e.target.value)}
               placeholder="Email address"
               size="lg"
-              width="100%"
+              width="100%" type='email'
             />
             <InputGroup size="lg" width="100%">
               <Input
@@ -106,7 +94,7 @@ const Login = () => {
               </InputRightElement>
             </InputGroup>
           </Flex>
-          
+
           <Flex alignItems="left" width="100%">
             <Checkbox
               isChecked={checked}
@@ -136,9 +124,7 @@ const Login = () => {
             </Text>
           </Box>
           <button
-            className={`continue ${
-               email && password ? "darkBlue" : null
-            }`}
+            className={`continue ${email && password ? "darkBlue" : null}`}
             disabled={email == "" && password == "" ? true : false}
             onClick={handleSubmit}
           >
@@ -147,14 +133,11 @@ const Login = () => {
           <Box py="0.8em" color="#585858">
             <Text textAlign="left" fontSize="xs">
               Already have an account?{" "}
-              <Link color="#0f5bb8" href="#">
+              <Link color="#0f5bb8" as={ReachLink} to="/signup">
                 Create one
-              </Link>{" "}
+              </Link>
             </Text>
           </Box>
-          {/* <Text color="#585858" fontSize="xs">
-            or continue with
-          </Text> */}
         </VStack>
       </div>
     </div>
