@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import logoWhite from "../../assets/TRAVELGO-(2).png";
+import logoWhite from "../../Assets/TRAVELGO-(2).png";
 import { FaArrowLeft } from "react-icons/fa";
 import { BiShowAlt, BiHide } from "react-icons/bi";
 import { HiCheckCircle } from "react-icons/hi";
