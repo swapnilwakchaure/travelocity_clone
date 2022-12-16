@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import logoWhite from "../../Assets/TRAVELGO-(2).png";
+import logoWhite from "../../Assets/travelgo2.png";
 import { FaArrowLeft } from "react-icons/fa";
 import { BiShowAlt, BiHide } from "react-icons/bi";
 import { Link as ReachLink, useNavigate } from "react-router-dom";
