@@ -1,4 +1,4 @@
-import { Box,Flex,Spacer,Text,Button } from '@chakra-ui/react'
+import { Box,Flex,Spacer,Text } from '@chakra-ui/react'
 import { ArrowBackIcon } from '@chakra-ui/icons'
 import {AiOutlineHeart} from "react-icons/ai"
 import React from 'react'
@@ -26,9 +26,9 @@ const HotelCard = () => {
       <Flex>
       <Tabss/>
       <Spacer />
-      <Button color="white" colorScheme="blue" bg="blue" mr={5}>
+      {/* <Button color="white" colorScheme="blue" bg="blue" mr={5}>
         Reserve a room
-      </Button>
+      </Button> */}
       </Flex>
       
     </Box>
