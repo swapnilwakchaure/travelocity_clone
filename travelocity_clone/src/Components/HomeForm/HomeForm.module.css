@@ -1,0 +1,93 @@
+.form_main {
+    /* border: 2px solid green; */
+    background-image: url("https://forever.travel-assets.com/flex/flexmanager/images/2021/06/25/TVLY_SeizeYourSomeday_lpheroB_1680x945_20210623.jpg?impolicy=fcrop&w=900&h=225&q=mediumHigh");
+    padding: 10px;
+}
+
+.form_bg_image > img {
+    width: 100%;
+}
+
+.form_container {
+    /* border: 2px solid red; */
+    padding: 10px;
+    height: 400px;
+    width: 90%;
+    margin: 20px auto;
+    border-radius: 10px;
+    background-color: white;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+
+/* form navigation bar */
+.form_navbar {
+    /* border: 1px solid blue; */
+    height: 50px;
+    margin: 20px;
+}
+.form_navbar > div {
+    /* border: 1px solid red; */
+    width: 50%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin: 10px auto;
+}
+.form_navbar > div > p {
+    cursor: pointer;
+    display: inline-block;
+    position: relative;
+}
+.form_navbar > div > p:after {
+    content: "";
+    position: absolute;
+    width: 100%;
+    transform: scaleX(0);
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background-color: #3f51b5;
+    transform-origin: bottom right;
+    transition: transform 0.25s ease-out;
+    margin: -10px 0px;
+}
+.form_navbar > div > p:hover:after {
+    transform: scaleX(1);
+    transform-origin: bottom left;
+}
+.form_navbar > div > p:hover {
+    color: #3f51b5;
+}
+.form_navbar > hr {
+    display: block;
+    background-color: #3f51b5;
+    width: 90%;
+    margin: auto;
+}
+
+/* form starts from here */
+.form_start {
+    border: 1px solid green;
+    height: 250px;
+    margin: 20px;
+}
+.form_start > form > div:first-child {
+    display: flex;
+    align-items: center;
+}
+.form_start > form > div:nth-child(2) {
+    display: flex;
+    /* border: 1px solid red; */
+    width: 50%;
+    justify-content: space-around;
+}
+.form_start > form > button {
+    display: block;
+    background-color: #3f51b5;
+    color: white;
+    margin:  50px auto;
+    padding: 10px 50px;
+}
+.form_start > form > button:hover {
+    background-color: #596acb;
+}
