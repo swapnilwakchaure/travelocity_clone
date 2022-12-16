@@ -5,6 +5,7 @@ import {FaCanadianMapleLeaf,FaSnowflake} from "react-icons/fa"
 import {SlPaypal} from "react-icons/sl"
 import {MdLocalLaundryService} from "react-icons/md"
 import {AiFillStar,AiOutlineRight,AiOutlineWifi,AiOutlineLeft} from "react-icons/ai"
+import Map from '../ProductComponents/Map'
 const Overview = () => {
   return (
     <Flex>
@@ -83,11 +84,11 @@ const Overview = () => {
             <Text>See All</Text>
           </Flex>
       </Box>
-      <Box border={'1px solid black'} w='80%' align='right'>
+      <Box  w='80%' align='right'>
         {/* Right Side */}
-        <Box border={'1px solid blue'} h={200} w={'60%'} borderRadius={10} m={4}>
+        <Box h={200} w={'auto'} borderRadius={10} m={4}>
              {/* map component */}
-             Map
+            <Map/>
         </Box>
         <Box w={350}>
         <Text>
