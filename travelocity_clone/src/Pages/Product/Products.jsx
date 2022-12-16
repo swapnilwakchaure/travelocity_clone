@@ -8,53 +8,49 @@ import Search from "./../../Components/ProductComponents/Search";
 import Map from "./../../Components/ProductComponents/Map";
 import { Box, Flex } from "@chakra-ui/react";
 
- function Products(){
+function Products(){
     const dispatch = useDispatch()
-    const hotel = useSelector(store=>store.GetDataReducer.hotel)
+    const hotel = useSelector(store=>store.hotel)
     let location = useLocation()
     const [searchParams] = useSearchParams()
     const [sorting,setSorting] = useState('')
     const [ordering,setOrdering] = useState('')
     
-
+    function getPar(){
+        
+    }
     useEffect(()=> {
+        
         if(location || hotel.length===0){
-            const sortBy = searchParams.get('sort') || ""
-            if(sortBy.includes('starRating') && sortBy.includes('asc')){
-                setSorting('starRating')
-                setOrdering('asc')
-            }else if(sortBy.includes('starRating') && sortBy.includes('desc')){
-                setSorting('starRating')
-                setOrdering('desc')
-            }else if (sortBy.includes('price') && sortBy.includes('asc')){
-                setSorting('price')
-                setOrdering('asc')
-            }else if(sortBy.includes('price') && sortBy.includes('desc')){
-                setSorting('price')
-                setOrdering('desc')
-            }
-            const getParams = {
+            let getParams = {}
+             let sortBysort = searchParams.get('_sort') || ""
+             if(sortBysort == 'undefined'){
+                sortBysort = ''
+             }
+             const sortByorder = searchParams.get('_order') || ""
+            getParams = {
                 params:{
                     starRating:searchParams.getAll('starRating'),
-                    _sort:sorting ,
-                    _order:ordering,
+                    _sort:sortBysort ,
+                    _order:sortByorder,
                 }
             }
-            dispatch(getData(getParams))
+                dispatch(getData(getParams))
         }
     },[hotel.length,dispatch, location.search])
     
     return (
         <div>
-            <Flex  gap='2'>
-                <Box w='24%' border='1px solid black'>
+            <Box w='90%' m='auto'>
+            <Flex m='auto'  gap='6%' direction={['column','column','row','row']}>
+                <Box m='auto' mt='2%' w={['90%','90%','24%','24%']} border='1px solid black'>
                     <div>
                         <Map/>
                         <Search/>
                         <Filter/>    
                     </div>
                 </Box>
-                <Box w='60%' border='1px solid black'>
+                <Box m='auto' w={['90%','90%','70%','70%']} border='1px solid black'>
                     <div>
                         {hotel.length>0 && hotel.map(item=>{
                             return <SingleProduct key={item.hotelId} item={item}/>
@@ -63,6 +59,8 @@ import { Box, Flex } from "@chakra-ui/react";
                 </Box>
             
             </Flex>
+            </Box>
+            
             
         </div>      
     )
