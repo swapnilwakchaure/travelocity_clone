@@ -11,7 +11,7 @@ const SingleProduct = ({item}) => {
                 <Box w={['90%','90%','90%','35%']} m='auto'>      
                     <Carousel infiniteLoop>
                     {item.images.map((slide) => {
-                        return <Image src={slide.url} mt={['10px','10px','30px','30px']} boxSize='200px' />;
+                        return <Image src={slide.url} key={item.id} mt={['10px','10px','30px','30px']} boxSize='200px' />;
                     })}
                     </Carousel>            
                  </Box>

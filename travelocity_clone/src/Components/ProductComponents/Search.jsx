@@ -22,7 +22,7 @@ const Search = () => {
                 
                 
                 {loading && "Loading...."}
-                {!loading && data && data.map((item)=><div key={item.hotelId}>{item.name}</div>)}
+                {!loading && data && data.map((item)=><div key={item.id}>{item.name}</div>)}
             </div>
             </Box>
         </div>

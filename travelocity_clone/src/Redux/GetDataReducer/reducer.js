@@ -16,6 +16,12 @@ const reducer = (oldState=initialState, action) => {
             return {...oldState, isLoading:false, hotel : payload}
         case types.GET_FAILURE:
             return {...oldState, isError:true}
+        case types.ADD_REQUEST:
+            return {...oldState}
+        case types.ADD_SUCCESS:
+            return {...oldState, payload}
+        case types.ADD_FAILURE:
+            return {...oldState, isError:true}
         default:
             return oldState;
     }
