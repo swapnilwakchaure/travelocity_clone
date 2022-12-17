@@ -62,7 +62,7 @@ const Login = () => {
         <div></div>
       </div>
       <div className="loginContent">
-        <VStack justify="center" pt="2em" width="30%" m="auto">
+        <VStack justify="center" pt="2em" width={{base:'90%',md:'40%'}} m="auto">
           <Text as="b" fontSize="4xl" mb="0.7em">
             Sign In
           </Text>
