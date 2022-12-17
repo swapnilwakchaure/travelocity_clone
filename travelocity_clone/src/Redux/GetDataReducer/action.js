@@ -28,4 +28,38 @@ const getData = (params) => (dispatch) => {
                 dispatch(getFailure())
         })
 }
-export {getData}
+
+
+
+
+
+
+
+const addRequest = () => {
+    return{
+        type:types.ADD_REQUEST
+    }
+}
+const addSuccess = (payload) => {
+    return{
+        type:types.ADD_SUCCESS,
+        payload
+    }
+}
+const addFailure = () => {
+    return{
+        type:types.ADD_FAILURE
+    }
+}
+
+
+const addData = (params) => (dispatch) => {
+    dispatch(addRequest())
+    return axios.post('http://localhost:8080/data', params)
+            .then(r=>{
+                dispatch(addSuccess(r.data))})
+            .catch(e=>{
+                dispatch(addFailure())
+        })
+}
+export {getData, addData}

@@ -53,7 +53,7 @@ function Products(){
                 <Box m='auto' w={['90%','90%','70%','70%']} border='1px solid black'>
                     <div>
                         {hotel.length>0 && hotel.map(item=>{
-                            return <SingleProduct key={item.hotelId} item={item}/>
+                            return <SingleProduct key={item.id} item={item}/>
                         })}
                     </div>
                 </Box>
