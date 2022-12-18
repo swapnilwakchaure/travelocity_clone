@@ -7,3 +7,9 @@
     width: 100%;
     height: 100%;
 }
+
+.Home_make_some_space {
+    /* border: 2px solid green; */
+    height: 300px;
+    background-color: #f0f3f5;
+}

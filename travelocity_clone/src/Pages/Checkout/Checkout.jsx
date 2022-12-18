@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import "./Checkout.css";
 import { MdOutlineDone, MdKeyboardArrowDown, MdEmail } from "react-icons/md";
 import { IoIosArrowForward, IoLockClosed } from "react-icons/io";
@@ -56,6 +56,7 @@ import {
 
 const Checkout = () => {
   const { isOpen, onOpen, onClose } = useDisclosure();
+  const [plusValue, plusSetValue] = useState('yesPlus')
   return (
     <VStack backgroundColor="#ededed" px="10%">
       <VStack alignItems="left" w="100%" mt="1em">
@@ -216,7 +217,7 @@ const Checkout = () => {
                   Select Yes or No to continue booking *
                 </Heading>
               </VStack>
-              <RadioGroup name="plus">
+              <RadioGroup name="plus"  onChange={plusSetValue} value={plusValue}>
                 <Flex
                   justifyContent={"space-between"}
                   backgroundColor="#edfae6"
@@ -224,7 +225,7 @@ const Checkout = () => {
                   px="1em"
                   mb="0.5em"
                 >
-                  <Radio size="md" value="1">
+                  <Radio size="md" value="yesPlus">
                     Yes, I want Hotel Booking Protection Plus for my trip.
                   </Radio>
                   <Box textAlign={"right"}>
@@ -235,7 +236,7 @@ const Checkout = () => {
                   </Box>
                 </Flex>
                 <Flex backgroundColor="#f5f5f5" minH="4em" px="1em">
-                  <Radio size="md" value="2">
+                  <Radio size="md" value="noPlus">
                     No, I'm willing to risk my $172.36 trip.
                   </Radio>
                 </Flex>

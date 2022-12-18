@@ -2,6 +2,7 @@ import styles from "./Navbar.module.css";
 import Travelgo from "../../Assets/travelgo1.png";
 import { FaShoppingBag } from "react-icons/fa";
 import { Select } from "@chakra-ui/react";
+import HomeAccount from "../../Components/HomeAccount/HomeAccount";
 
 const Navbar = () => {
     return (
@@ -32,7 +33,10 @@ const Navbar = () => {
                 <div>List your property</div>
                 <div>Support</div>
                 <div>Trips</div>
-                <div>Sign in</div>
+                {/* <div>Sign in</div> */}
+                <div>
+                    <HomeAccount login={"Sign In"} />
+                </div>
             </div>
         </div>
     )
