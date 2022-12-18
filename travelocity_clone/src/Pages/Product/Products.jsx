@@ -7,18 +7,17 @@ import { useSearchParams,useLocation } from "react-router-dom";
 import Search from "./../../Components/ProductComponents/Search";
 import Map from "./../../Components/ProductComponents/Map";
 import { Box, Flex } from "@chakra-ui/react";
+import { Link } from "react-router-dom";
 
 function Products(){
     const dispatch = useDispatch()
-    const hotel = useSelector(store=>store.hotel)
+    const hotel = useSelector(store=>store.GetDataReducer.hotel)
     let location = useLocation()
     const [searchParams] = useSearchParams()
     const [sorting,setSorting] = useState('')
     const [ordering,setOrdering] = useState('')
     
-    function getPar(){
-        
-    }
+
     useEffect(()=> {
         
         if(location || hotel.length===0){
@@ -52,6 +51,7 @@ function Products(){
                 </Box>
                 <Box m='auto' w={['90%','90%','70%','70%']} border='1px solid black'>
                     <div>
+                        {console.log(hotel)}
                         {hotel.length>0 && hotel.map(item=>{
                             return <SingleProduct key={item.id} item={item}/>
                         })}

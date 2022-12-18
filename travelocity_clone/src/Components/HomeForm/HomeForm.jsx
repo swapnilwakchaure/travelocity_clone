@@ -2,6 +2,7 @@ import styles from "./HomeForm.module.css";
 import { Input, InputGroup, InputLeftElement, Button } from "@chakra-ui/react";
 import { GoLocation } from "react-icons/go";
 import { BsCalendarCheck, BsPersonFill } from "react-icons/bs";
+import { Link } from "react-router-dom";
 
 const HomeForm = () => {
     const handleFormClick = () => {
@@ -72,7 +73,10 @@ const HomeForm = () => {
                                 <label>Add a car</label>
                             </div>
                         </div>
+                        <Link to='/products'>
                         <Button variant="solid" onClick={handleFormClick}>Search</Button>
+                        </Link>
+                        
                     </form>
                 </div>
             </div>
