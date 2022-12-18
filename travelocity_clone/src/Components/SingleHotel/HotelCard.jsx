@@ -4,6 +4,8 @@ import {AiOutlineHeart} from "react-icons/ai"
 import React from 'react'
 import "./HotelCard.css"
 import Tabss from './Tabss'
+import Footer from '../FooterPage/FooterPage'
+
 const HotelCard = () => {
   return (
     <Box  h="auto" w="80%" m="auto" pt={5} bg='Gray.200'>
@@ -30,7 +32,7 @@ const HotelCard = () => {
         Reserve a room
       </Button> */}
       </Flex>
-      
+      <Footer/>
     </Box>
   )
 }
