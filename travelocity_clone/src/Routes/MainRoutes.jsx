@@ -5,6 +5,8 @@ import Signup from '../Pages/Signup/Signup';
 import Home from './../Pages/Home/Home';
 import { Signup_Welcome } from './../Pages/Signup/Signup_Welcome';
 import Checkout from './../Pages/Checkout/Checkout';
+import Products from '../Pages/Product/Products';
+import HotelCard from '../Components/SingleHotel/HotelCard';
 
 const MainRoutes = () => {
 
@@ -13,6 +15,9 @@ const MainRoutes = () => {
         <Route path='/' element={<Home />} />
         <Route path='/signup' element={<Signup />} />
         <Route path='/login' element={<Login />} />
+        <Route path='/products' element={<Products/>}/>
+        <Route path='/singleHotel' element={<HotelCard/>}/>
+        
         <Route path='/checkout' element={<Checkout />} />
         <Route path='/signup/welcome' element={<Signup_Welcome />} />
     </Routes>

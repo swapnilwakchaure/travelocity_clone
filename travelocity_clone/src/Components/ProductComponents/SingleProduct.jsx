@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import { Box, Flex,Text } from "@chakra-ui/react"
 import { PhoneIcon } from "@chakra-ui/icons"
 import { Image } from "@chakra-ui/react";
@@ -17,9 +18,12 @@ const SingleProduct = ({item}) => {
                  </Box>
             <Box w={['90%','90%','90%','70%']} m='auto'>
             <div>
+                <Link to='/singleHotel'>
                 <Text fontSize='lg' align='left' as='b'>
                 {item.name}
                 </Text>
+                </Link>
+                
                 <Text>
                 {item.address.city}
                 </Text>

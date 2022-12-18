@@ -4,12 +4,15 @@ import { useDisclosure } from '@chakra-ui/react'
 import ModalBody1 from './ModalBody1';
 import { useNavigate } from "react-router-dom";
 function PaymentModal() {
-  let price=320;
+  let price=360;
   let name = "St.Regis Mumbai"
   const navigate = useNavigate();
     const { isOpen, onOpen, onClose } = useDisclosure()
   const AddLocal=(price,name)=>{
-    localStorage.setItem("Room_details",{name,price});
+    let hotelObj = {
+      name,price
+    }
+    localStorage.setItem("Hotel_Data", JSON.stringify(hotelObj))
     
   }
     return (
