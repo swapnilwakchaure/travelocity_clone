@@ -6,7 +6,7 @@ import "./HotelCard.css"
 import Tabss from './Tabss'
 const HotelCard = () => {
   return (
-    <Box border="1px solid black" h="30rem" w="80%" m="auto" pt={5}>
+    <Box  h="auto" w="80%" m="auto" pt={5} bg='Gray.200'>
       <Flex w="98%" m="auto" h={45} >
       <ArrowBackIcon/>
         <Text ml={2} color="blue.400">See All Properties</Text>
