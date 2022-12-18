@@ -33,10 +33,10 @@ const Navbar = () => {
                 <div>List your property</div>
                 <div>Support</div>
                 <div>Trips</div>
-                <div>Sign in</div>
-                {/* <div>
+                {/* <div>Sign in</div> */}
+                <div>
                     <HomeAccount login={"Sign In"} />
-                </div> */}
+                </div>
             </div>
         </div>
     )
