@@ -1,6 +1,6 @@
 import styles from "./Navbar.module.css";
 import Travelgo from "../../Assets/travelgo.jpg";
-import { FaShoppingBag } from "@react-icons/fa";
+import { FaShoppingBag } from "react-icons/fa";
 import { Select } from "@chakra-ui/react";
 import HomeAccount from "../../Components/HomeAccount/HomeAccount";
 
