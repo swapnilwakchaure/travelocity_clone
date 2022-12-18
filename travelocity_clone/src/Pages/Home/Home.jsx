@@ -9,6 +9,7 @@ const Home = () => {
             <HomeForm />
             <div className={styles.Home_make_some_space}></div>
             <HomeAvatar />
+            <hr />
             <Footer />
         </div>
     )

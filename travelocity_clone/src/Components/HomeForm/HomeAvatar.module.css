@@ -197,3 +197,46 @@
     margin: auto;
     border-radius: 10px;
 }
+
+/* here to help keep you on the move */
+
+.HomeAvatar_change {
+    /* border: 1px solid green; */
+    background-color: #f0f3f5;
+    height: 200px;
+}
+
+.HomeAvatar_change > h1 {
+    font-size: 30px;
+    font-weight: bold;
+    width: 500px;
+    margin: 0px 20px;
+}
+
+.HomeAvatar_change_child {
+    padding: 10px 20px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2%;
+}
+
+.HomeAvatar_change_child > div {
+    padding: 10px;
+    /* border: 1px solid red; */
+    border-radius: 10px;
+    /* border: 1px solid black; */
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    line-height: 30px;
+    background-color: white;
+}
+
+.HomeAvatar_change_child > div > div {
+    display: flex;
+    /* border: 1px solid green; */
+    justify-content: space-between;
+}
+
+.HomeAvatar_change_child > div > div > h2 {
+    font-size: 17px;
+    font-weight: bold;
+}

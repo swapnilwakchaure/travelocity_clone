@@ -1,4 +1,7 @@
 import styles from "./HomeAvatar.module.css";
+import { MdOutlineEdit } from "react-icons/md";
+import { AiFillDollarCircle } from "react-icons/ai"
+import { TbMessages } from "react-icons/tb";
 
 const HomeAvatar = () => {
     return (
@@ -99,6 +102,34 @@ const HomeAvatar = () => {
                     allowfullscreen
                 >
                 </iframe>
+            </div>
+
+            {/* here to help keep you on the move */}
+            <div className={styles.HomeAvatar_change}>
+                <h1>Here to help keep you on the move</h1>
+                <div className={styles.HomeAvatar_change_child}>
+                    <div>
+                        <div>
+                            <h2>Change or cancel a trip</h2>
+                            <MdOutlineEdit />
+                        </div>
+                        <p>Make updates to your itinerary or cancel a booking</p>
+                    </div>
+                    <div>
+                        <div>
+                            <h2>Use a credit or coupon</h2>
+                            <AiFillDollarCircle />
+                        </div>
+                        <p>Apply a coupon code or credit to a new trip</p>
+                    </div>
+                    <div>
+                        <div>
+                            <h2>Trank your refund</h2>
+                            <TbMessages />
+                        </div>
+                        <p>Check the status of a refund currently in progress.</p>
+                    </div>
+                </div>
             </div>
         </div>
     )
