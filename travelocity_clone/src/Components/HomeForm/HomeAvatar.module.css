@@ -1,0 +1,199 @@
+.HomeAvatar_container {
+    /* height: 300px; */
+    /* border: 1px solid red; */
+    padding: 20px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    /* display: flex; */
+    gap: 4%;
+    background-color: #f0f3f5;
+
+}
+
+.HomeAvatar_text_image {
+    height: 230px;
+    /* width: 35%; */
+    /* border: 1px solid blue; */
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    border-radius: 10px;
+    background-color: white;
+}
+
+.HomeAvatar_text_image:hover {
+    cursor: pointer;
+    transform: scale(1.1);
+}
+.HomeAvatar_banner {
+    position: relative;
+}
+
+.HomeAvatar_banner > img {
+    width: 100%;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+
+.HomeAvatar_banner > img + p {
+    /* border: 1px solid red; */
+    width: 230px;
+    position: absolute;
+    /* background-color: darkred; */
+    color: white;
+    top: 80%;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.HomeAvatar_banner + p {
+    width: 90%;
+    margin: 6px auto;
+    font-size: 14px;
+    color: grey;
+}
+
+
+/* second components styling start from here */
+
+.HomeAvatar_container_second {
+    /* border: 1px solid green; */
+    background-color: #f0f3f5;
+    /* height: 350px; */
+    padding: 20px;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    /* display: flex; */
+    gap: 2%;
+}
+
+.HomeAvatar_text_image_second {
+    /* border: 1px solid red; */
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    /* width: 45%; */
+    height: 260px;
+    border-radius: 10px;
+    margin: auto;
+}
+
+.HomeAvatar_banner_second {
+    position: relative;
+}
+
+.HomeAvatar_banner_second > img {
+    width: 100%;
+    height: 260px;
+    border-radius: 10px;
+    /* opacity: 250%; */
+    /* filter: blur(1px); */
+    /* -webkit-filter: blur(1px); */
+}
+
+.HomeAvatar_banner_second > div {
+    /* background-color: darkred; */
+    color: white;
+    width: 250px;
+    position: absolute;
+    top: 20%;
+    margin: 0px 20px;
+    padding: 10px;
+    background:rgba(0, 0, 0, 0.24);
+}
+
+.HomeAvatar_banner_second > div > h1 {
+    text-align: start;
+    font-size: 20px;
+    font-weight: bold;
+    /* color: grey; */
+}
+
+.HomeAvatar_banner_second > div > p {
+    text-align: start;
+}
+
+.HomeAvatar_banner_second > div > button {
+    display: block;
+    text-align: start;
+    padding: 5px 10px;
+    border-radius: 10px;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    background-color: white;
+    color: rgb(75, 75, 172);
+    margin: 10px 0px;
+}
+
+.HomeAvatar_banner_second > div > button:hover {
+    cursor: pointer;
+    background-color: rgb(240, 228, 228);
+}
+
+
+/* the third component have been starts from here */
+
+.HomeAvatar_starts_planning_header {
+    background-color: #f0f3f5;
+}
+.HomeAvatar_starts_planning_header > h1 {
+    /* border: 1px solid red; */
+    width: 450px;
+    font-size: 30px;
+    font-weight: bold;
+}
+
+.HomeAvatar_container_third {
+    /* border: 1px solid green; */
+    /* height: 300px; */
+    background-color: #f0f3f5;
+    /* padding: 20px; */
+    padding: 20px 10px;
+    /* display: flex; */
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2%;
+    margin: auto;
+}
+
+.HomeAvatar_text_image_third {
+    /* border: 1px solid red; */
+    height: 200px;
+    margin: auto;
+    border-radius: 10px;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+
+.HomeAvatar_text_image_third:hover {
+    transform: scale(1.1);
+}
+
+.HomeAvatar_banner_third {
+    position: relative;
+}
+
+.HomeAvatar_banner_third > img {
+    width: 100%;
+    height: 200px;
+    border-radius: 10px;
+}
+
+.HomeAvatar_banner_third > h1 {
+    position: absolute;
+    top: 55%;
+    left: 15%;
+    width: 200px;
+    font-size: 25px;
+    font-weight: bold;
+    color: white;
+    /* border: 1px solid white; */
+}
+
+
+
+/* youtube add styling starts from here */
+
+.HomeAvatar_youtube_add {
+    background-color: #f0f3f5;
+    padding: 20px 0px;
+}
+
+.HomeAvatar_youtube_add > iframe {
+    margin: auto;
+    border-radius: 10px;
+}
