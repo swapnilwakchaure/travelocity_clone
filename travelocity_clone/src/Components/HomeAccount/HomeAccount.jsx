@@ -4,12 +4,12 @@ import {
     ModalBody,
     ModalCloseButton,
     ModalContent,
-    ModalFooter,
+    ModalFooter,VStack,
     ModalHeader,
     ModalOverlay,
     useDisclosure,
-    Input,
-    InputGroup,
+    Input,Link,
+    InputGroup,Text,
     InputRightElement
 } from "@chakra-ui/react";
 
@@ -19,7 +19,7 @@ import {
     FormLabel
 } from "@chakra-ui/form-control";
 
-import { Link } from "react-router-dom";
+import { Link as ReachLink } from "react-router-dom";
 import React from "react";
 
 const HomeAccount = ({ login }) => {
@@ -29,43 +29,18 @@ const HomeAccount = ({ login }) => {
 
     return (
         <>
-            <Button onClick={onOpen} backgroundColor="#333">{login}</Button>
-
+            <Button onClick={onOpen} backgroundColor="#333" _hover={{ bg: 'color: rgb(92, 92, 92)' }}>{login}</Button>
             <Modal isOpen={isOpen} onClose={onClose}>
                 <ModalOverlay />
-                <ModalContent>
-                    <ModalHeader>Login form</ModalHeader>
+                <ModalContent p='1em'>
+                    <ModalHeader>Members can access discounts and special features</ModalHeader>
                     <ModalCloseButton />
                     <ModalBody>
-                        {/* <LoginForm /> */}
-                        <div>
-                            <FormControl>
-                                <FormLabel>Email address</FormLabel>
-                                <Input type="email" placeholder="enter email address" />
-                                <FormLabel>Password</FormLabel>
-                                <InputGroup size="md">
-                                    <Input
-                                        pr="4.5rem"
-                                        type={show ? "text" : "password"}
-                                        placeholder="Enter password"
-                                    />
-                                    <InputRightElement width="4.5rem">
-                                        <Button h="1.75rem" size="sm" onClick={handleClick}>
-                                            {show ? "Hide" : "Show"}
-                                        </Button>
-                                    </InputRightElement>
-                                </InputGroup>
-                                <FormHelperText>We'll never share your email.</FormHelperText>
-                            </FormControl>
-                        </div>
+                        <VStack alignItems='center'>
+                        <Button onClick={onClose} w='100%' backgroundColor='#0f5bb9' color='white' _hover={{ bg: '#5b9be9' }}><Link as={ReachLink} to='/login'>Sign in</Link></Button>
+                        <ReachLink to="/signup" onClick={onClose}><Text color='#0f5bb9' as='b' fontSize='xl'>Create a free account</Text></ReachLink>
+                        </VStack>
                     </ModalBody>
-                    <ModalFooter>
-                        <Button colorScheme="blue" mr={3} onClick={onClose}>
-                            LOGIN
-                        </Button>
-                        {/* <Button variant="ghost">Secondary Action</Button> */}
-                        <Link to="/signup">Sign In</Link>
-                    </ModalFooter>
                 </ModalContent>
             </Modal>
         </>

@@ -53,10 +53,36 @@ import {
   Box,
   useDisclosure,
 } from "@chakra-ui/react";
+import { useNavigate } from "react-router-dom";
 
 const Checkout = () => {
+  const navigate = useNavigate()
+  const cardNameHardcoded = "DHANUSH";
+  const cardNumHardcoded = "1111222233334444";
+  const cvvHardcoded = "312";
+  const [cardName, setcardName] = useState("");
+  const [cardNum, setcardNum] = useState("");
+  const [cvv, setcvv] = useState("");
   const { isOpen, onOpen, onClose } = useDisclosure();
-  const [plusValue, plusSetValue] = useState('yesPlus')
+  const [plusValue, plusSetValue] = useState("yesPlus");
+  const completeBooking = () =>{
+    if(cardNameHardcoded == cardName){
+      if(cardNumHardcoded == cardNum){
+        if(cvvHardcoded == cvv){
+          navigate('/')
+        }
+        else{
+          alert("Invalid credentials")
+        }
+      }
+      else{
+        alert("Invalid credentials")
+      }
+    }
+    else{
+      alert("Invalid credentials")
+    }
+  }
   return (
     <VStack backgroundColor="#ededed" px="10%">
       <VStack alignItems="left" w="100%" mt="1em">
@@ -68,13 +94,8 @@ const Checkout = () => {
           <Text>You've picked a winner! This hotel is rated 9.2/10.</Text>
         </Flex>
       </VStack>
-      <Grid
-        gap="1em"
-        backgroundColor="#ededed"
-        templateAreas={`"first second"`}
-        templateColumns={"70% 1fr"}
-      >
-        <GridItem area={"first"} w="100%">
+      <div className="gridDiv">
+        <VStack className="first" w="100%">
           <VStack textAlign="left" alignItems={"left"}>
             <VStack
               p="1em"
@@ -217,7 +238,7 @@ const Checkout = () => {
                   Select Yes or No to continue booking *
                 </Heading>
               </VStack>
-              <RadioGroup name="plus"  onChange={plusSetValue} value={plusValue}>
+              <RadioGroup name="plus" onChange={plusSetValue} value={plusValue}>
                 <Flex
                   justifyContent={"space-between"}
                   backgroundColor="#edfae6"
@@ -280,13 +301,13 @@ const Checkout = () => {
                       <HStack mb={3}>
                         <Box>
                           <FormLabel>Name on Card</FormLabel>
-                          <Input type="text" minWidth="30em" />
+                          <Input type="text" Width="100%" value={cardName} onChange={(e)=>setcardName(e.target.value)} />
                         </Box>
                       </HStack>
                       <HStack mb={3}>
                         <Box>
                           <FormLabel>Debit/Credit card number</FormLabel>
-                          <Input type="tel" maxLength="16" />
+                          <Input type="tel" maxLength="16" value={cardNum} onChange={(e)=>setcardNum(e.target.value)} />
                         </Box>
                       </HStack>
                       <Box mb={3}>
@@ -327,7 +348,7 @@ const Checkout = () => {
                       <HStack mb={3}>
                         <Box>
                           <FormLabel>Security code</FormLabel>
-                          <Input type="tel" maxLength="3" />
+                          <Input type="tel" maxLength="3" value={cvv} onChange={(e)=>setcvv(e.target.value)} />
                         </Box>
                         <Box>
                           <FormLabel>Billing ZIP code</FormLabel>
@@ -430,11 +451,11 @@ const Checkout = () => {
                 reviewed and accept the Rules & Restrictions Opens in a new
                 window. and Terms of Use
               </Text>
-              <Button
+              <Button onClick={completeBooking}
                 border="1px"
                 borderColor="black"
                 minH="2.5em"
-                maxW="35%"
+                maxW={{md: '60%', lg: '35%' }}
                 fontSize="120%"
                 className="completeBook"
                 bgGradient="linear(to-b, #90c50c, #729a0d)"
@@ -459,8 +480,8 @@ const Checkout = () => {
               </Text>
             </VStack>
           </VStack>
-        </GridItem>
-        <GridItem area={"second"}>
+        </VStack>
+        <VStack className="second">
           <VStack width="100%">
             <VStack
               p="1em"
@@ -495,7 +516,8 @@ const Checkout = () => {
                   <Link>Non-refundable</Link>
                   <AiOutlineInfoCircle />
                 </Flex>
-                <AlertDialog size='2xl'
+                <AlertDialog
+                  size="2xl"
                   motionPreset="slideInBottom"
                   onClose={onClose}
                   isOpen={isOpen}
@@ -505,8 +527,11 @@ const Checkout = () => {
                   <AlertDialogContent>
                     <AlertDialogHeader> </AlertDialogHeader>
                     <AlertDialogCloseButton />
-                    <AlertDialogBody pb='1em'>
-                    If you change or cancel your booking you will not get a refund or credit to use for a future stay. This policy will apply regardless of COVID-19, subject to any local consumer laws.
+                    <AlertDialogBody pb="1em">
+                      If you change or cancel your booking you will not get a
+                      refund or credit to use for a future stay. This policy
+                      will apply regardless of COVID-19, subject to any local
+                      consumer laws.
                     </AlertDialogBody>
                   </AlertDialogContent>
                 </AlertDialog>
@@ -543,8 +568,8 @@ const Checkout = () => {
               </HStack>
             </VStack>
           </VStack>
-        </GridItem>
-      </Grid>
+        </VStack>
+        </div>
     </VStack>
   );
 };
