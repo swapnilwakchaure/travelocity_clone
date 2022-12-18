@@ -5,7 +5,6 @@ import Signup from '../Pages/Signup/Signup';
 import Home from './../Pages/Home/Home';
 import { Signup_Welcome } from './../Pages/Signup/Signup_Welcome';
 import Checkout from './../Pages/Checkout/Checkout';
-import Temp from '../Pages/Temp';
 
 const MainRoutes = () => {
 
@@ -15,7 +14,6 @@ const MainRoutes = () => {
         <Route path='/signup' element={<Signup />} />
         <Route path='/login' element={<Login />} />
         <Route path='/checkout' element={<Checkout />} />
-        <Route path='/temp' element={<Temp />} />
         <Route path='/signup/welcome' element={<Signup_Welcome />} />
     </Routes>
   )
