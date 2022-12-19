@@ -29,7 +29,10 @@ function PaymentModal() {
             </ModalBody>
             <ModalFooter>
                 <Flex>
-                    <Button bg={'blue'} color='white' colorScheme={'blue.300'} mr={5} onClick={()=>{AddLocal(price,name);onClose();navigate("/page")}}>Pay Now</Button>
+                    <Button bg={'blue'} color='white' colorScheme={'blue.300'} mr={5} onClick={()=>{
+                      AddLocal(price,name);
+                      onClose();
+                      navigate("/page")}}>Pay Now</Button>
               <Button bg={'blue'} color='white' colorScheme={'blue.300'} onClick={onClose}>Close</Button>
               </Flex>
             </ModalFooter>

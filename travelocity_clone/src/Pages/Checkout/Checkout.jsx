@@ -69,6 +69,7 @@ const Checkout = () => {
     if(cardNameHardcoded == cardName){
       if(cardNumHardcoded == cardNum){
         if(cvvHardcoded == cvv){
+          alert("Payment Successful")
           navigate('/')
         }
         else{
