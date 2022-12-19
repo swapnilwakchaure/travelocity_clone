@@ -21,7 +21,7 @@ const getFailure = () => {
 
 const getData = (params) => (dispatch) => {
     dispatch(getRequest())
-    return axios.get('http://localhost:8080/data', params)
+    return axios.get('https://hotel-api-jsonserver1.onrender.com/data', params)
             .then(r=>{
                 dispatch(getSuccess(r.data))})
             .catch(e=>{
@@ -55,7 +55,7 @@ const addFailure = () => {
 
 const addData = (params) => (dispatch) => {
     dispatch(addRequest())
-    return axios.post('http://localhost:8080/data', params)
+    return axios.post('https://hotel-api-jsonserver1.onrender.com/data', params)
             .then(r=>{
                 dispatch(addSuccess(r.data))})
             .catch(e=>{

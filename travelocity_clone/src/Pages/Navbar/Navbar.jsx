@@ -7,6 +7,7 @@ import { useState } from "react";
 import { MdAccountCircle } from 'react-icons/md';
 import { BsFillHandbagFill } from 'react-icons/bs';
 import { useSelector } from "react-redux";
+import { Link } from "react-router-dom";
 
 const Navbar = () => {
     const [isUserAuth, setIsUserAuth] = useState(false);
@@ -17,7 +18,10 @@ const Navbar = () => {
         <div className={styles.nav_main}>
             <div className={styles.nav_first_part}>
                 <div className={styles.nav_logo}>
+                    <Link to='/'>
                     <img src={Travelgo} alt="travelgo-image" />
+                    </Link>
+                    
                 </div>
                 <div className={styles.nav_select_tag}>
                     <select name="" id="" placeholder="More Travel">
@@ -38,7 +42,7 @@ const Navbar = () => {
             </div>
             <div className={styles.nav_second_part}>
                 <div>Espanol</div>
-                <div>List your property</div>
+                <Link to='/listYourProperty'><div>List your property</div></Link>
                 <div>Support</div>
                 <div>Trips</div>
                 {/* <div>Sign in</div> */}

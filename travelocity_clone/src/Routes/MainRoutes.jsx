@@ -7,6 +7,7 @@ import { Signup_Welcome } from './../Pages/Signup/Signup_Welcome';
 import Checkout from './../Pages/Checkout/Checkout';
 import Products from '../Pages/Product/Products';
 import HotelCard from '../Components/SingleHotel/HotelCard';
+import AddProduct from '../Pages/AddProduct/AddProduct';
 
 const MainRoutes = () => {
 
@@ -17,7 +18,7 @@ const MainRoutes = () => {
         <Route path='/login' element={<Login />} />
         <Route path='/products' element={<Products/>}/>
         <Route path='/singleHotel' element={<HotelCard/>}/>
-        
+        <Route path='/listYourProperty' element={<AddProduct/>}/>
         <Route path='/checkout' element={<Checkout />} />
         <Route path='/signup/welcome' element={<Signup_Welcome />} />
     </Routes>
