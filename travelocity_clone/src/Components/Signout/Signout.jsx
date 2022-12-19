@@ -22,72 +22,48 @@ import {
   Text,
   InputRightElement,
 } from "@chakra-ui/react";
-
-import {
-  FormControl,
-  FormHelperText,
-  FormLabel,
-} from "@chakra-ui/form-control";
 import { userSignout } from "../../Redux/AuthReducer/action";
 import { loginRequest } from './../../Redux/AuthReducer/action';
-import Signout from "../Signout/Signout";
 
-
-const HomeAccount = ({ login }) => {
+function Signout() {
+    const { isOpen, onOpen, onClose } = useDisclosure();
     const dispatch = useDispatch()
     const navigate = useNavigate()
-  const { isOpen, onOpen, onClose } = useDisclosure();
-  const [show, setShow] = React.useState(false);
-  const handleClick = () => setShow(!show);
-  const userAuth = useSelector((store) => store.auth);
+    const userAuth = useSelector((store) => store.auth);
   const { isAuth, username } = userAuth;
   const auth = getAuth(app);
-  const userFn = () => {
-    signOut(auth)
-      .then(() => {
-        alert("Successfully signout");
-        onClose()
-        dispatch(loginRequest());
-        dispatch(userSignout());
-        navigate('/')
-      })
-      .catch((error) => {
-        // An error happened.
-      });
-  };
-  if(!isAuth) {
-    return (
-      <>
+    const userFn = () => {
+        signOut(auth)
+          .then(() => {
+            alert("Successfully signout");
+            onClose()
+            dispatch(loginRequest());
+            dispatch(userSignout());
+            navigate('/')
+          })
+          .catch((error) => {
+            // An error happened.
+          });
+      };
+  return (
+    <>
         <Button
           onClick={onOpen}
           backgroundColor="#333"
           _hover={{ bg: "color: rgb(92, 92, 92)" }}
         >
-          {login}
+          {username}
         </Button>
         <Modal isOpen={isOpen} onClose={onClose}>
           <ModalOverlay />
           <ModalContent p="1em">
-            <ModalHeader>
-              Members can access discounts and special features
-            </ModalHeader>
+            <ModalHeader>{username}</ModalHeader>
             <ModalCloseButton />
             <ModalBody>
               <VStack alignItems="center">
-                <Button
-                  onClick={onClose}
-                  w="100%"
-                  backgroundColor="#0f5bb9"
-                  color="white"
-                  _hover={{ bg: "#5b9be9" }}
-                >
-                  <Link as={ReachLink} to="/login">
-                    Sign in
-                  </Link>
-                </Button>
-                <ReachLink to="/signup" onClick={onClose}>
+                <ReachLink onClick={userFn}>
                   <Text color="#0f5bb9" as="b" fontSize="xl">
-                    Create a free account
+                    Sign out
                   </Text>
                 </ReachLink>
               </VStack>
@@ -95,14 +71,7 @@ const HomeAccount = ({ login }) => {
           </ModalContent>
         </Modal>
       </>
-    );
-  }
-  else{
-    return(
+  )
+}
 
-        <Signout />
-    )
-  }
-};
-
-export default HomeAccount;
+export default Signout

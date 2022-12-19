@@ -6,14 +6,13 @@ import HomeAccount from "../../Components/HomeAccount/HomeAccount";
 import { useState } from "react";
 import { MdAccountCircle } from 'react-icons/md';
 import { BsFillHandbagFill } from 'react-icons/bs';
+import { useSelector } from "react-redux";
 
 const Navbar = () => {
     const [isUserAuth, setIsUserAuth] = useState(false);
 
-    const handleClick = () => {
-        alert('user success');
-    }
-
+    const userAuth = useSelector((store)=>store.auth)
+    const {isAuth,username} = userAuth
     return (
         <div className={styles.nav_main}>
             <div className={styles.nav_first_part}>
@@ -44,7 +43,7 @@ const Navbar = () => {
                 <div>Trips</div>
                 {/* <div>Sign in</div> */}
                 <div>
-                    <HomeAccount login={"Sign In"} onclick={handleClick} />
+                     <HomeAccount login={"Sign In"} />
                 </div>
             </div>
             <div className={styles.nav_responsive_part}>

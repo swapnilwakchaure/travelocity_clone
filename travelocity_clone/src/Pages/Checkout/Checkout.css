@@ -2,3 +2,29 @@
     background-color: white;
     border: 1px solid white
 }
+.completeBook{
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
+}
+.first{
+    grid-area: f;
+}
+.second{
+    grid-area: s;
+}
+.gridDiv{
+    display: grid;
+    gap: 1rem;
+    grid-template-columns:70% 30%;
+    grid-template-areas: "f s";
+}
+
+  /* ============== SMALL DEVICES ============== */
+  @media screen and (max-width:378px){
+    .gridDiv{
+        gap: 1rem;
+        grid-template-columns:1fr;
+        grid-template-areas: "s""f";
+    }
+  }

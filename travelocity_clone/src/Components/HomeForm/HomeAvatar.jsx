@@ -93,7 +93,7 @@ const HomeAvatar = () => {
             {/* you-tube video add */}
             <div className={styles.HomeAvatar_youtube_add}>
                 <iframe
-                    width="1153"
+                    width="100%"
                     height="420"
                     src="https://www.youtube.com/embed/ItS8X0SjT4s"
                     title="Travelocity Romantic Cabana :30"
