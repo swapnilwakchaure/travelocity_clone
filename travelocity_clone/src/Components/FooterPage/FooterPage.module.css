@@ -64,3 +64,9 @@
     color: #505C66;
     font-size: 0.75rem;
 }
+
+@media (max-width: 800px) {
+    .Footer_container {
+        margin: 70px 0px;
+    }
+}

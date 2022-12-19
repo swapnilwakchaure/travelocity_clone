@@ -1,5 +1,6 @@
 .form_main {
     /* border: 2px solid green; */
+    width: 100%;
     background-image: url("https://forever.travel-assets.com/flex/flexmanager/images/2021/06/25/TVLY_SeizeYourSomeday_lpheroB_1680x945_20210623.jpg?impolicy=fcrop&w=900&h=225&q=mediumHigh");
     padding: 10px;
 }
@@ -72,7 +73,9 @@
     margin: 20px;
 }
 .form_start > form > div:first-child {
-    display: flex;
+    /* display: flex; */
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
     align-items: center;
 }
 .form_start > form > div:nth-child(2) {
@@ -90,4 +93,15 @@
 }
 .form_start > form > button:hover {
     background-color: #596acb;
+}
+
+
+@media (max-width: 810px) {
+    .form_navbar > div {
+        display: none;
+    }
+    .form_start > form > div:first-child {
+        display: grid;
+        grid-template-columns: repeat(1,1fr);
+    }
 }

@@ -61,3 +61,25 @@
     transform: scaleX(1);
     transform-origin: bottom left;
 }
+
+/* responvieness styles */
+.nav_responsive_part {
+    display: none;
+}
+
+
+
+@media (max-width: 990px) {
+    .nav_second_part {
+        display: none;
+    }
+    .nav_responsive_part {
+        width: 20%;
+        padding: 0px 20px;
+        /* border: 1px solid red; */
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        font-size: 24px;
+    }
+}

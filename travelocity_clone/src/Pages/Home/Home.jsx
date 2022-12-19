@@ -5,7 +5,7 @@ import styles from "./Home.module.css";
 
 const Home = () => {
     return (
-        <div>
+        <div className={styles.travelocity_home_page}>
             <HomeForm />
             <div className={styles.Home_make_some_space}></div>
             <HomeAvatar />

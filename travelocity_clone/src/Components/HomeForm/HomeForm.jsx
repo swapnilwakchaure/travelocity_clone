@@ -73,10 +73,7 @@ const HomeForm = () => {
                                 <label>Add a car</label>
                             </div>
                         </div>
-                        <Link to='/products'>
-                        <Button variant="solid" onClick={handleFormClick}>Search</Button>
-                        </Link>
-                        
+                            <Button variant="solid"><Link to="/products">Search</Link></Button>
                     </form>
                 </div>
             </div>

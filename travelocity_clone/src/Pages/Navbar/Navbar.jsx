@@ -3,8 +3,17 @@ import Travelgo from "../../Assets/travelgo1.png";
 import { FaShoppingBag } from "react-icons/fa";
 import { Select } from "@chakra-ui/react";
 import HomeAccount from "../../Components/HomeAccount/HomeAccount";
+import { useState } from "react";
+import { MdAccountCircle } from 'react-icons/md';
+import { BsFillHandbagFill } from 'react-icons/bs';
 
 const Navbar = () => {
+    const [isUserAuth, setIsUserAuth] = useState(false);
+
+    const handleClick = () => {
+        alert('user success');
+    }
+
     return (
         <div className={styles.nav_main}>
             <div className={styles.nav_first_part}>
@@ -35,8 +44,12 @@ const Navbar = () => {
                 <div>Trips</div>
                 {/* <div>Sign in</div> */}
                 <div>
-                    <HomeAccount login={"Sign In"} />
+                    <HomeAccount login={"Sign In"} onclick={handleClick} />
                 </div>
+            </div>
+            <div className={styles.nav_responsive_part}>
+                <BsFillHandbagFill color="white" />
+                <MdAccountCircle color="white" />
             </div>
         </div>
     )

@@ -240,3 +240,38 @@
     font-size: 17px;
     font-weight: bold;
 }
+
+
+/* responsive styles */
+
+@media (max-width: 800px) {
+    .HomeAvatar_container {
+        display: grid;
+        grid-template-columns: repeat(1, 1fr);
+        gap: 4%;
+        padding: 10%;
+    }
+    .HomeAvatar_container_second {
+        display: grid;
+        grid-template-columns: repeat(1, 1fr);
+        gap: 4%;
+        padding: 10%;
+    }
+    .HomeAvatar_container_third {
+        display: grid;
+        grid-template-columns: repeat(1, 1fr);
+        gap: 4%;
+        padding: 10%;
+    }
+    .HomeAvatar_youtube_add > iframe {
+        width: 90%;
+        padding: 5%;
+    }
+    .HomeAvatar_change_child {
+        display: grid;
+        grid-template-columns: repeat(1, 1fr);
+        width: 90%;
+        margin: auto;
+        padding: 20px 0px;
+    }
+}

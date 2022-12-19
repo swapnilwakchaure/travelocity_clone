@@ -5,6 +5,7 @@ import {AiOutlineUsergroupDelete,AiOutlineWifi,AiOutlineCheck} from "react-icons
 import {MdWaves} from "react-icons/md"
 
 import {FaBed,FaPaypal} from "react-icons/fa"
+import PaymentModal from './PaymentModal'
 const RoomsDet = () => {
   return (
     <Box align='left' mt={3}>
@@ -63,7 +64,9 @@ const RoomsDet = () => {
             <Flex>
                 <Text color='blue.400'>Price Details {">"} </Text>
                 <Spacer />
-                <Button mr={2} mt={-2} mb={2} bg={'blue'} color='white' colorScheme={'blue.300'}>Reserve</Button>
+                <Button mr={2} mt={-2} mb={2} bg={'blue'} color='white' colorScheme={'blue.300'}>
+                    <PaymentModal/>
+                </Button>
             </Flex>
         </Box>
     </Box>
