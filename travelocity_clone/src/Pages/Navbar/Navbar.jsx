@@ -3,8 +3,11 @@ import Travelgo from "../../Assets/travelgo1.png";
 import { FaShoppingBag } from "react-icons/fa";
 import { Select } from "@chakra-ui/react";
 import HomeAccount from "../../Components/HomeAccount/HomeAccount";
+import { useSelector } from "react-redux";
 
 const Navbar = () => {
+    const userAuth = useSelector((store)=>store.auth)
+    const {isAuth,username} = userAuth
     return (
         <div className={styles.nav_main}>
             <div className={styles.nav_first_part}>
@@ -35,7 +38,7 @@ const Navbar = () => {
                 <div>Trips</div>
                 {/* <div>Sign in</div> */}
                 <div>
-                    <HomeAccount login={"Sign In"} />
+                     <HomeAccount login={"Sign In"} />
                 </div>
             </div>
         </div>
