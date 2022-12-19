@@ -1,4 +1,4 @@
-import { USER_LOGIN_REQUEST, USER_LOGIN_SUCCESS, USER_LOGIN_ERROR } from './actionTypes';
+import { USER_LOGIN_REQUEST, USER_LOGIN_SUCCESS, USER_LOGIN_ERROR, USER_SIGNOUT } from './actionTypes';
 
 export const loginRequest = () =>{
     return{
@@ -14,5 +14,10 @@ export const loginSuccess = (token) =>{
 export const loginError = () =>{
     return{
         type:USER_LOGIN_ERROR
+    }
+}
+export const userSignout = () =>{
+    return{
+        type:USER_SIGNOUT
     }
 }

@@ -38,9 +38,7 @@ const Navbar = () => {
                 <div>Trips</div>
                 {/* <div>Sign in</div> */}
                 <div>
-                    {
-                        isAuth?username:<HomeAccount login={"Sign In"} />
-                    }
+                     <HomeAccount login={"Sign In"} />
                 </div>
             </div>
         </div>

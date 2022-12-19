@@ -21,6 +21,8 @@ import {
 } from "firebase/auth";
 import app from "./../../Firebase/firebase";
 import { saveDataLocal } from "./../../LocalStorage/usernamePassword";
+import { useDispatch } from 'react-redux';
+import { loginRequest, loginSuccess, loginError } from './../../Redux/AuthReducer/action';
 
 const Login = () => {
   const navigate = useNavigate()
@@ -29,15 +31,24 @@ const Login = () => {
   const [show, setShow] = useState(false);
   const [checked, setchecked] = useState(true);
   const handleClick = () => setShow(!show);
+  const dispatch = useDispatch()
   const handleSubmit = () => {
     const auth = getAuth(app);
     signInWithEmailAndPassword(auth, email, password)
       .then((userCredential) => {
-        const user = userCredential.user;
         if(checked){
-
+          
           saveDataLocal("userDetails", { email, password });
         }
+        let token = userCredential.user.accessToken;
+        const first = userCredential.user.email;
+        // ...
+        const payload = {
+          first,
+          token,
+        };
+        dispatch(loginRequest());
+        dispatch(loginSuccess(payload));
         navigate('/')
         
       })
@@ -45,6 +56,7 @@ const Login = () => {
         console.log(error);
         const errorCode = error.code;
         const errorMessage = error.message;
+        dispatch(loginError());
       });
   };
   const passwordChangeFn = (e) => {
