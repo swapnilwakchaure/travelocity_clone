@@ -3,7 +3,7 @@ This is the photos of the Travelocity website. Travelocity is an online travel a
 
 **To see the live site click the below link.**
 
-
+https://gentle-cactus-7afc93.netlify.app/
 
 **To see the Demo Video of Website click the below link.**
 
@@ -45,7 +45,7 @@ https://drive.google.com/file/d/1LDadb489b9cfM0fMZ5aaTwXmgTCZC2qq/view
 <img src="./travelocity_photos/navbar_page.png">
 <img src="./travelocity_photos/home_page.png">
 <img src="./travelocity_photos/sign_in_page.png">
-<img src="./travelocity_photos/product_page.png">
+<img src="./travelocity_photos/products_page.png">
 <img src="./travelocity_photos/single_product_page.png">
 <img src="./travelocity_photos/single_product_page1.png">
 <img src="./travelocity_photos/payment_page.png">
