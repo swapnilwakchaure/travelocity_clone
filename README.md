@@ -1,5 +1,5 @@
-# Travelocity_website_clone
-This is the clone of the Travelocity website. Travelocity is an online travel agency. From this website, users can book a hotel room, flights, cars, etc. across the world.
+# Travelocity_website_photos
+This is the photos of the Travelocity website. Travelocity is an online travel agency. From this website, users can book a hotel room, flights, cars, etc. across the world.
 
 **To see the live site click the below link.**
 
@@ -42,14 +42,14 @@ https://drive.google.com/file/d/1LDadb489b9cfM0fMZ5aaTwXmgTCZC2qq/view
 
 ## Some screenshots of the project
 
-<img src="./travelocity_clone/navbar_page.png">
-<img src="./travelocity_clone/home_page.png">
-<img src="./travelocity_clone/sign_in_page.png">
-<img src="./travelocity_clone/product_page.png">
-<img src="./travelocity_clone/single_product_page.png">
-<img src="./travelocity_clone/single_product_page1.png">
-<img src="./travelocity_clone/payment_page.png">
-<img src="./travelocity_clone/payment_method_page.png">
-<img src="./travelocity_clone/footer_page.png">
+<img src="./travelocity_photos/navbar_page.png">
+<img src="./travelocity_photos/home_page.png">
+<img src="./travelocity_photos/sign_in_page.png">
+<img src="./travelocity_photos/product_page.png">
+<img src="./travelocity_photos/single_product_page.png">
+<img src="./travelocity_photos/single_product_page1.png">
+<img src="./travelocity_photos/payment_page.png">
+<img src="./travelocity_photos/payment_method_page.png">
+<img src="./travelocity_photos/footer_page.png">
 
 ### Thanks for reading
