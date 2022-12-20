@@ -1,5 +1,5 @@
 import styles from "./HomeForm.module.css";
-import { Input, InputGroup, InputLeftElement, Button } from "@chakra-ui/react";
+import { Box, Input, InputGroup, InputLeftElement, Button } from "@chakra-ui/react";
 import { GoLocation } from "react-icons/go";
 import { BsCalendarCheck, BsPersonFill } from "react-icons/bs";
 import { Link } from "react-router-dom";
@@ -27,13 +27,15 @@ const HomeForm = () => {
                     <form>
                         <div>
                             <div>
-                                <InputGroup w="100%" m="20px">
-                                    <InputLeftElement
-                                        pointerEvents='none'
-                                        children={<GoLocation color='gray.300' />}
-                                    />
-                                    <Input variant="outline" type='location' placeholder='Going to' />
-                                </InputGroup>
+                                <Box w="90%" m="auto">
+                                    <InputGroup>
+                                        <InputLeftElement
+                                            pointerEvents='none'
+                                            children={<GoLocation color='gray.300' />}
+                                        />
+                                        <Input variant="outline" type='location' placeholder='Going to' />
+                                    </InputGroup>
+                                </Box>
                             </div>
                             <div>
                                 <InputGroup w="80%" m="20px 50px">
@@ -73,7 +75,7 @@ const HomeForm = () => {
                                 <label>Add a car</label>
                             </div>
                         </div>
-                            <Button variant="solid"><Link to="/products">Search</Link></Button>
+                        <Button variant="solid"><Link to="/products">Search</Link></Button>
                     </form>
                 </div>
             </div>

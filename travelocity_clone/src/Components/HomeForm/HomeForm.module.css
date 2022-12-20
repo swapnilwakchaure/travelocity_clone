@@ -103,5 +103,7 @@
     .form_start > form > div:first-child {
         display: grid;
         grid-template-columns: repeat(1,1fr);
+        padding: -10% 0%;
+        line-height: 20px;
     }
 }

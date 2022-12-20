@@ -1,4 +1,4 @@
-import Footer from "../../Components/FooterPage/FooterPage";
+// import Footer from "../../Components/FooterPage/FooterPage";
 import HomeAvatar from "../../Components/HomeForm/HomeAvatar";
 import HomeForm from "../../Components/HomeForm/HomeForm"
 import styles from "./Home.module.css";
@@ -10,7 +10,7 @@ const Home = () => {
             <div className={styles.Home_make_some_space}></div>
             <HomeAvatar />
             <hr />
-            <Footer />
+            {/* <Footer /> */}
         </div>
     )
 }
