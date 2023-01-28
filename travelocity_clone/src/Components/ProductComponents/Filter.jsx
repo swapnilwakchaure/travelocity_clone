@@ -64,9 +64,9 @@ const Filter = () => {
     return (
         <div>
             <div>
-                <Box mt={['5px','10px','30px','40px']} border='1px solid black'>
+                <Box mt={['5px','10px','30px','40px']}>
                 <Text fontSize='lg' as='u'>Sort by</Text>
-                <Select border='1px solid skyblue' placeholder="Sort by" id="getItSort" onChange={handleChangeSort}>
+                <Select mt='2' border='1px solid skyblue' placeholder="Sort by" id="getItSort" onChange={handleChangeSort}>
                     <optgroup label="By price">
                         <option value={['price','asc']}>Low to High</option>
                         <option value={['price','desc']}>High to Low</option>
@@ -81,24 +81,24 @@ const Filter = () => {
                 
                 
             </div>
-            <Box mt={['5px','10px','30px','40px']} border='1px solid black'>
+            <Box mt={['5px','10px','30px','40px']}>
             <Text fontSize='lg' as='u'>Filter by star rating</Text>
             <Flex justifyContent='space-around' >
             <div>
-                <input type="checkbox" value="2" checked={starRating.includes('2')} onChange={handleFilterCheckbox}/>
-                <label >2</label>
+                <input type="checkbox" value="2" checked={starRating.includes('2')} onChange={handleFilterCheckbox} />
+                <label style={{marginLeft:'5px'}} >2</label>
             </div>
             <div>
                 <input type="checkbox" value="3" checked={starRating.includes('3')} onChange={handleFilterCheckbox}/>
-                <label>3</label>
+                <label style={{marginLeft:'5px'}}>3</label>
             </div>
             <div>
                 <input type="checkbox" value="4" checked={starRating.includes('4')} onChange={handleFilterCheckbox}/>
-                <label >4</label>
+                <label style={{marginLeft:'5px'}} >4</label>
             </div>
             <div>
                 <input type="checkbox" value="5" checked={starRating.includes('5')} onChange={handleFilterCheckbox}/>
-                <label>5</label>
+                <label style={{marginLeft:'5px'}}>5</label>
             </div>
             </Flex>
             <div className="filter">
@@ -106,50 +106,50 @@ const Filter = () => {
             <Text fontSize='lg' as='u'>Popular</Text>
             <div>
                 <input type="checkbox" value="airportShuttle" />
-                <label >Free Airport Shuttle</label>
+                <label  style={{marginLeft:'5px'}}>Free Airport Shuttle</label>
             </div>
             <div>
                 <input type="checkbox" value="aerocity"/>
-                <label>Aerocity</label>
+                <label style={{marginLeft:'5px'}}>Aerocity</label>
             </div>
             <div>
                 <input type="checkbox" value="breakfast"/>
-                <label >Breakfast Included</label>
+                <label  style={{marginLeft:'5px'}}>Breakfast Included</label>
             </div>
             <div>
                 <input type="checkbox" value="freeCancel" />
-                <label>Free Cancellation</label>
+                <label style={{marginLeft:'5px'}}>Free Cancellation</label>
             </div>
             <div>
                 <input type="checkbox" value="hotel"/>
-                <label >Hotel</label>
+                <label  style={{marginLeft:'5px'}}>Hotel</label>
             </div>
             </Box>
             <Box w='70%' m='auto' mt='30px' textAlign='left'>
             <Text fontSize='lg' as='u'>Property Type</Text>
             <div>
                 <input type="checkbox" value="hotel"/>
-                <label>Hotel</label>
+                <label style={{marginLeft:'5px'}}>Hotel</label>
             </div>
             <div>
                 <input type="checkbox" value="house"/>
-                <label >House</label>
+                <label style={{marginLeft:'5px'}} >House</label>
             </div>
             <div>
                 <input type="checkbox" value="ApartHotel"/>
-                <label>Apart Hotel</label>
+                <label style={{marginLeft:'5px'}}>Apart Hotel</label>
             </div>
             <div>
                 <input type="checkbox" value="Aprtment"/>
-                <label >Apartment</label>
+                <label style={{marginLeft:'5px'}} >Apartment</label>
             </div>
             <div>
                 <input type="checkbox" value="Villa"/>
-                <label>Villa</label>
+                <label style={{marginLeft:'5px'}}>Villa</label>
             </div>
             <div>
                 <input type="checkbox" value="Condo"/>
-                <label >Condo</label>
+                <label style={{marginLeft:'5px'}} >Condo</label>
             </div>
             <div>
                 <input type="checkbox" value="Hostel"/>
@@ -157,18 +157,18 @@ const Filter = () => {
             </div>
             <div>
                 <input type="checkbox" value="Agritourism"/>
-                <label >Agritourism</label>
+                <label style={{marginLeft:'5px'}} >Agritourism</label>
             </div>
             </Box>
             <Box w='70%' m='auto' mt='30px' textAlign='left'>
             <Text fontSize='lg' as='u'>Payment Type</Text>
             <div>
                 <input type="checkbox" value="fullyRefundable"/>
-                <label>Fully refundable</label>
+                <label style={{marginLeft:'5px'}}>Fully refundable</label>
             </div>
             <div>
                 <input type="checkbox" value="reserveNow"/>
-                <label >Reserve now Pay Later</label>
+                <label style={{marginLeft:'5px'}} >Reserve now Pay Later</label>
             </div>
             </Box>
             
@@ -176,30 +176,30 @@ const Filter = () => {
             <Text fontSize='lg' as='u'>Traveler Experience</Text>
             <div>
                 <input type="checkbox" value="fullyRefundable"/>
-                <label>Family friendly</label>
+                <label style={{marginLeft:'5px'}}>Family friendly</label>
             </div>
             <div>
                 <input type="checkbox" value="reserveNow"/>
-                <label >Business friendly</label>
+                <label style={{marginLeft:'5px'}} >Business friendly</label>
             </div>
             </Box>
             <Box w='70%' m='auto' mt='30px' textAlign='left'>
             <Text fontSize='ls' as='u'>Neighborhood</Text>
             <div>
                 <input type="checkbox" value="delhi"/>
-                <label>Delhi</label>
+                <label style={{marginLeft:'5px'}}>Delhi</label>
             </div>
             <div>
                 <input type="checkbox" value="noida"/>
-                <label >Noida</label>
+                <label style={{marginLeft:'5px'}} >Noida</label>
             </div>
             <div>
                 <input type="checkbox" value="aerocity"/>
-                <label>Aerocity</label>
+                <label style={{marginLeft:'5px'}}>Aerocity</label>
             </div>
             <div>
                 <input type="checkbox" value="karolBagh"/>
-                <label >Karol bagh</label>
+                <label style={{marginLeft:'5px'}} >Karol bagh</label>
             </div>
             </Box>
             
@@ -207,19 +207,19 @@ const Filter = () => {
             <Text fontSize='ls' as='u'>Meals Plan available</Text>
             <div>
                 <input type="checkbox" value="breakfastAval"/>
-                <label>Breakfast</label>
+                <label style={{marginLeft:'5px'}}>Breakfast</label>
             </div>
             <div>
                 <input type="checkbox" value="lunchAval"/>
-                <label >Lunch</label>
+                <label style={{marginLeft:'5px'}} >Lunch</label>
             </div>
             <div>
                 <input type="checkbox" value="dinnerAval"/>
-                <label>Dinner</label>
+                <label style={{marginLeft:'5px'}}>Dinner</label>
             </div>
             <div>
                 <input type="checkbox" value="AllAval"/>
-                <label >All included</label>
+                <label style={{marginLeft:'5px'}} >All included</label>
             </div>
             </Box>
             
@@ -227,35 +227,35 @@ const Filter = () => {
             <Text fontSize='ls' as='u'>Amenities</Text>
             <div>
                 <input type="checkbox" value="pool"/>
-                <label>Pool</label>
+                <label style={{marginLeft:'5px'}}>Pool</label>
             </div>
             <div>
                 <input type="checkbox" value="hotTub"/>
-                <label >Hot tub</label>
+                <label style={{marginLeft:'5px'}} >Hot tub</label>
             </div>
             <div>
                 <input type="checkbox" value="freeWifi"/>
-                <label>Free wifi</label>
+                <label style={{marginLeft:'5px'}}>Free wifi</label>
             </div>
             <div>
                 <input type="checkbox" value="spa"/>
-                <label >Spa</label>
+                <label style={{marginLeft:'5px'}} >Spa</label>
             </div>
             <div>
                 <input type="checkbox" value="PetFriendly"/>
-                <label>Pet Friendly</label>
+                <label style={{marginLeft:'5px'}}>Pet Friendly</label>
             </div>
             <div>
                 <input type="checkbox" value="AirCondition"/>
-                <label >Air Conditioned</label>
+                <label style={{marginLeft:'5px'}} >Air Conditioned</label>
             </div>
             <div>
                 <input type="checkbox" value="gym"/>
-                <label>Gym</label>
+                <label style={{marginLeft:'5px'}}>Gym</label>
             </div>
             <div>
                 <input type="checkbox" value="restaurant"/>
-                <label >Restaurant</label>
+                <label style={{marginLeft:'5px'}} >Restaurant</label>
             </div>
             </Box>
             </div>

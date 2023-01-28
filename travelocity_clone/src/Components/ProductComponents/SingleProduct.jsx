@@ -8,7 +8,7 @@ import "react-responsive-carousel/lib/styles/carousel.min.css";
 const SingleProduct = ({item}) => {
     return (
         <Box >
-            <Flex mt='30px' gap={['1%','1%','2%','5%']} border='1px solid black' borderRadius='30px' direction={['column','column','column','row']}>
+            <Flex sx={{boxShadow:'rgba(99, 99, 99, 0.2) 0px 2px 8px 0px'}} mt='30px' gap={['1%','1%','2%','5%']} borderRadius='15px' direction={['column','column','column','row']}  p='5'>
                 <Box w={['90%','90%','90%','35%']} m='auto'>      
                     <Carousel infiniteLoop>
                     {item.images.map((slide) => {
@@ -49,8 +49,6 @@ const SingleProduct = ({item}) => {
             </Box>
             
             </Flex>
-            
-            
         </Box>
     )
 }
