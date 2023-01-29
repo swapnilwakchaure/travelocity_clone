@@ -203,7 +203,6 @@
 .HomeAvatar_change {
     /* border: 1px solid green; */
     background-color: #f0f3f5;
-    height: 200px;
 }
 
 .HomeAvatar_change > h1 {
@@ -239,6 +238,9 @@
 .HomeAvatar_change_child > div > div > h2 {
     font-size: 17px;
     font-weight: bold;
+}
+.HomeAvatar_change_child{
+    margin-bottom: 5rem;
 }
 
 

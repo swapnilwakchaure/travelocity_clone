@@ -23,11 +23,6 @@ import {
   InputRightElement,
 } from "@chakra-ui/react";
 
-import {
-  FormControl,
-  FormHelperText,
-  FormLabel,
-} from "@chakra-ui/form-control";
 import { userSignout } from "../../Redux/AuthReducer/action";
 import { loginRequest } from './../../Redux/AuthReducer/action';
 import Signout from "../Signout/Signout";
@@ -58,7 +53,7 @@ const HomeAccount = ({ login }) => {
   if(!isAuth) {
     return (
       <>
-        <Button
+        <Button color='white'
           onClick={onOpen}
           backgroundColor="#333"
           _hover={{ bg: "color: rgb(92, 92, 92)" }}

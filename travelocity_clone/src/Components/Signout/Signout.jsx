@@ -47,7 +47,7 @@ function Signout() {
       };
   return (
     <>
-        <Button
+        <Button color='white'
           onClick={onOpen}
           backgroundColor="#333"
           _hover={{ bg: "color: rgb(92, 92, 92)" }}

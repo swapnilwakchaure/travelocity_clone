@@ -7,10 +7,8 @@ const Home = () => {
     return (
         <div className={styles.travelocity_home_page}>
             <HomeForm />
-            <div className={styles.Home_make_some_space}></div>
             <HomeAvatar />
             <hr />
-            {/* <Footer /> */}
         </div>
     )
 }

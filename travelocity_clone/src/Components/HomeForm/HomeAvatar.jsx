@@ -2,10 +2,11 @@ import styles from "./HomeAvatar.module.css";
 import { MdOutlineEdit } from "react-icons/md";
 import { AiFillDollarCircle } from "react-icons/ai"
 import { TbMessages } from "react-icons/tb";
+import { Text } from "@chakra-ui/react";
 
 const HomeAvatar = () => {
     return (
-        <div>
+        <>
             <div className={styles.HomeAvatar_container}>
                 <div className={styles.HomeAvatar_text_image}>
                     <div className={styles.HomeAvatar_banner}>
@@ -61,7 +62,7 @@ const HomeAvatar = () => {
             </div>
             {/* the third component have been starts from here */}
             <div className={styles.HomeAvatar_starts_planning_header}>
-                <h1>Start planning your next trip</h1>
+                <Text as='b' fontSize='3xl'>Start planning your next trip</Text>
             </div>
             <div className={styles.HomeAvatar_container_third}>
                 <div className={styles.HomeAvatar_text_image_third}>
@@ -106,7 +107,7 @@ const HomeAvatar = () => {
 
             {/* here to help keep you on the move */}
             <div className={styles.HomeAvatar_change}>
-                <h1>Here to help keep you on the move</h1>
+                <Text as='b' fontSize='3xl'>Here to help keep you on the move</Text>
                 <div className={styles.HomeAvatar_change_child}>
                     <div>
                         <div>
@@ -131,7 +132,7 @@ const HomeAvatar = () => {
                     </div>
                 </div>
             </div>
-        </div>
+        </>
     )
 }
 
