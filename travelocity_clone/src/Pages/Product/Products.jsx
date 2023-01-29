@@ -42,14 +42,14 @@ function Products(){
         <div>
             <Box w='90%' m="auto">
             <Flex m='auto'  gap='6%' direction={['column','column','row','row']}>
-                <Box m='auto' mt='2%' w={['90%','90%','24%','24%']} border='1px solid black'>
+                <Box m='auto' mt='2%' w={['90%','90%','24%','24%']} sx={{boxShadow:'rgba(99, 99, 99, 0.2) 0px 2px 8px 0px'}} p='5'>
                     <div>
                         <Map/>
                         <Search/>
                         <Filter/>    
                     </div>
                 </Box>
-                <Box m='auto' mt="20px" w={['90%','90%','70%','70%']} border='1px solid black'>
+                <Box m='auto' w={['90%','90%','70%','70%']}>
                     <div>
                         {console.log(hotel)}
                         {hotel.length>0 && hotel.map(item=>{

@@ -15,7 +15,7 @@ const Search = () => {
 
     return (
         <div className="search">
-            <Box border='1px solid black' mt='40px'>
+            <Box mt='40px'>
             <div>
                 
                 <Input placeholder="Search" type="text" value={country} onChange={changehandle} />

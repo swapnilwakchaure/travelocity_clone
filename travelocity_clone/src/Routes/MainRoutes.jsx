@@ -8,6 +8,7 @@ import Checkout from './../Pages/Checkout/Checkout';
 import Products from '../Pages/Product/Products';
 import HotelCard from '../Components/SingleHotel/HotelCard';
 import AddProduct from '../Pages/AddProduct/AddProduct';
+import { PrivateRoute } from './../Private/PrivateRoute';
 
 const MainRoutes = () => {
 
@@ -18,8 +19,8 @@ const MainRoutes = () => {
         <Route path='/login' element={<Login />} />
         <Route path='/products' element={<Products/>}/>
         <Route path='/singleHotel' element={<HotelCard/>}/>
-        <Route path='/listYourProperty' element={<AddProduct/>}/>
-        <Route path='/checkout' element={<Checkout />} />
+        <Route path='/listYourProperty' element={<PrivateRoute><AddProduct/></PrivateRoute>}/>
+        <Route path='/checkout' element={<PrivateRoute><Checkout /></PrivateRoute>} />
         <Route path='/signup/welcome' element={<Signup_Welcome />} />
     </Routes>
   )
