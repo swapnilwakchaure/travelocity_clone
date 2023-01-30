@@ -7,12 +7,18 @@ import {
   HStack,
   Text,
   Spacer,
+  Button,
   Link
 } from "@chakra-ui/react";
 import { useSelector } from "react-redux";
+import { useNavigate } from 'react-router';
 
 export const Signup_Welcome = () => {
     const username = useSelector((store)=>store.auth.username)
+    const navigate = useNavigate()
+    const signupWelcomeRedirect = () =>{
+      navigate(-3)
+    }
   return (
     <div>
       <div className="loginNavbar">
@@ -33,9 +39,9 @@ export const Signup_Welcome = () => {
           With your new Travelgo account, the world is within your reach.
           </Text>
           <HStack py="0.8em" width='100%'>
-              <Link as={ReachLink} color="#0f5bb8" to='/'>
+              <Button onClick={signupWelcomeRedirect} color="#0f5bb8">
                 Continue
-              </Link>
+              </Button>
               <Spacer />
           </HStack>
         </VStack>

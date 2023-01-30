@@ -45,13 +45,12 @@ function Products(){
                 <Box m='auto' mt='2%' w={['90%','90%','24%','24%']} sx={{boxShadow:'rgba(99, 99, 99, 0.2) 0px 2px 8px 0px'}} p='5'>
                     <div>
                         <Map/>
-                        <Search/>
+                        {/* <Search/> */}
                         <Filter/>    
                     </div>
                 </Box>
                 <Box m='auto' w={['90%','90%','70%','70%']}>
                     <div>
-                        {console.log(hotel)}
                         {hotel.length>0 && hotel.map(item=>{
                             return <SingleProduct key={item.id} item={item}/>
                         })}

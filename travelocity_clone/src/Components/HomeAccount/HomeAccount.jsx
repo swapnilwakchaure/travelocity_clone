@@ -21,19 +21,17 @@ import {
   InputGroup,
   Text,
   InputRightElement,
+  useToast,
 } from "@chakra-ui/react";
 
-import {
-  FormControl,
-  FormHelperText,
-  FormLabel,
-} from "@chakra-ui/form-control";
 import { userSignout } from "../../Redux/AuthReducer/action";
 import { loginRequest } from './../../Redux/AuthReducer/action';
 import Signout from "../Signout/Signout";
+import { getDataLocal } from "../../LocalStorage/usernamePassword";
 
 
 const HomeAccount = ({ login }) => {
+  const toast = useToast()
     const dispatch = useDispatch()
     const navigate = useNavigate()
   const { isOpen, onOpen, onClose } = useDisclosure();
@@ -41,11 +39,16 @@ const HomeAccount = ({ login }) => {
   const handleClick = () => setShow(!show);
   const userAuth = useSelector((store) => store.auth);
   const { isAuth, username } = userAuth;
+  const localUser = getDataLocal('userDetails')
   const auth = getAuth(app);
   const userFn = () => {
     signOut(auth)
       .then(() => {
-        alert("Successfully signout");
+        toast({
+          title: 'Account signout successfully',
+          status: 'success',
+          duration: 2000,
+        })
         onClose()
         dispatch(loginRequest());
         dispatch(userSignout());
@@ -55,10 +58,10 @@ const HomeAccount = ({ login }) => {
         // An error happened.
       });
   };
-  if(!isAuth) {
+  if(!localUser) {
     return (
       <>
-        <Button
+        <Button color='white'
           onClick={onOpen}
           backgroundColor="#333"
           _hover={{ bg: "color: rgb(92, 92, 92)" }}

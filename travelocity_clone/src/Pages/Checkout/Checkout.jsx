@@ -52,36 +52,57 @@ import {
   AlertDialogBody,
   Box,
   useDisclosure,
+  useToast,
 } from "@chakra-ui/react";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 
 const Checkout = () => {
+  const toast = useToast()
   const navigate = useNavigate()
-  const cardNameHardcoded = "DHANUSH";
-  const cardNumHardcoded = "1111222233334444";
-  const cvvHardcoded = "312";
+  const location = useLocation();
+const item = location.state;
   const [cardName, setcardName] = useState("");
   const [cardNum, setcardNum] = useState("");
   const [cvv, setcvv] = useState("");
   const { isOpen, onOpen, onClose } = useDisclosure();
   const [plusValue, plusSetValue] = useState("yesPlus");
   const completeBooking = () =>{
-    if(cardNameHardcoded == cardName){
-      if(cardNumHardcoded == cardNum){
-        if(cvvHardcoded == cvv){
-          alert("Payment Successful")
+    if(cardName != ""){
+      if(cardNum.length == 16){
+        if(cvv.length == 3){
+          toast({
+            description: "Payment Successfull",
+            status: "success",
+            position: "top",
+            duration: 4000,
+          });
           navigate('/')
         }
         else{
-          alert("Invalid credentials")
+          toast({
+            description: "Invalid CVV",
+            status: "error",
+            position: "top",
+            duration: 3000,
+          });
         }
       }
       else{
-        alert("Invalid credentials")
+        toast({
+          description: "Card number has to be 16 digits",
+          status: "error",
+          position: "top",
+          duration: 3000,
+        });
       }
     }
     else{
-      alert("Invalid credentials")
+      toast({
+        description: "Enter a valid card name",
+        status: "error",
+        position: "top",
+        duration: 3000,
+      });
     }
   }
   return (
@@ -92,7 +113,7 @@ const Checkout = () => {
         </Text>
         <Flex alignItems="center" color="green" gap="1em" fontSize="md">
           <MdOutlineDone fontSize="1.2em" />
-          <Text>You've picked a winner! This hotel is rated 9.2/10.</Text>
+          <Text>You've picked a winner!</Text>
         </Flex>
       </VStack>
       <div className="gridDiv">
@@ -106,9 +127,6 @@ const Checkout = () => {
             >
               <Text fontSize="xl" as="b">
                 Who's checking in?
-              </Text>
-              <Text>
-                <Text as="b">Room 1:</Text> 2 Adults 2 Twin Beds Non-smoking
               </Text>
               <Flex alignItems="center" color="green" gap="1em">
                 <HStack>
@@ -494,8 +512,8 @@ const Checkout = () => {
               <Box>
                 <Image
                   width="100%"
-                  src="https://images.trvl-media.com/hotels/6000000/5640000/5637600/5637575/d0332a8e_l.jpg"
-                  alt="Dan Abramov"
+                  src={item.images[0].url}
+                  alt="Room Image"
                 />
               </Box>
               <VStack spacing="0.5em" alignItems={"left"} color="grey">
@@ -503,9 +521,7 @@ const Checkout = () => {
                 <Text fontSize="sm">
                   Guests rated this property 9.4/10 for cleanliness
                 </Text>
-                <Text fontSize="sm">
-                  <Text as="b">1 Room: </Text>Deluxe Twin Room, 2 Twin/Single
-                  Beds, Non Smoking
+                <Text fontSize="sm">{item.name}
                 </Text>
                 <Flex
                   onClick={onOpen}
@@ -557,15 +573,15 @@ const Checkout = () => {
               </Text>
               <HStack justifyContent="space-between">
                 <Text>1 room x 1 night</Text>
-                <Text>$146.07</Text>
+                <Text>₹{item.roomPrice}</Text>
               </HStack>
               <HStack justifyContent="space-between">
                 <Text>Taxes and fees</Text>
-                <Text>$26.29</Text>
+                <Text>₹{((item.roomPrice) * 18) /100}</Text>
               </HStack>
               <HStack as="b" justifyContent="space-between">
                 <Text>Total</Text>
-                <Text>$172.36</Text>
+                <Text>₹{(item.roomPrice)+(((item.roomPrice) * 18) /100)}</Text>
               </HStack>
             </VStack>
           </VStack>

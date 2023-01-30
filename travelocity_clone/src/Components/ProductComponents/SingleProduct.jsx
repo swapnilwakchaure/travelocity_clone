@@ -7,6 +7,8 @@ import "react-responsive-carousel/lib/styles/carousel.min.css";
 
 const SingleProduct = ({item}) => {
     return (
+        <>
+        <Link to='/singleHotel' state={item}>
         <Box >
             <Flex sx={{boxShadow:'rgba(99, 99, 99, 0.2) 0px 2px 8px 0px'}} mt='30px' gap={['1%','1%','2%','5%']} borderRadius='15px' direction={['column','column','column','row']}  p='5'>
                 <Box w={['90%','90%','90%','35%']} m='auto'>      
@@ -18,11 +20,11 @@ const SingleProduct = ({item}) => {
                  </Box>
             <Box w={['90%','90%','90%','70%']} m='auto'>
             <div>
-                <Link to='/singleHotel'>
+                
                 <Text fontSize='lg' align='left' as='b'>
                 {item.name}
                 </Text>
-                </Link>
+                
                 
                 <Text>
                 {item.address.city}
@@ -50,6 +52,8 @@ const SingleProduct = ({item}) => {
             
             </Flex>
         </Box>
+        </Link>
+        </>
     )
 }
 export default SingleProduct

@@ -1,86 +1,104 @@
 import styles from "./HomeForm.module.css";
-import { Box, Input, InputGroup, InputLeftElement, Button } from "@chakra-ui/react";
+import {
+  Box,
+  Input,
+  InputGroup,
+  InputLeftElement,
+  Button,
+  VStack,
+  Grid,
+  Flex,
+  Hide,
+  useToast,
+} from "@chakra-ui/react";
 import { GoLocation } from "react-icons/go";
 import { BsCalendarCheck, BsPersonFill } from "react-icons/bs";
 import { Link } from "react-router-dom";
 
 const HomeForm = () => {
-    const handleFormClick = () => {
-        alert("form submit");
-    }
+  const toast = useToast()
+  const handleFormClick = () => {
+    toast({
+      title: 'Details added',
+      status: 'success',
+      duration: 2000,
+    })
+  };
 
-    return (
-        <div className={styles.form_main}>
-            <div className={styles.form_container}>
-                <div className={styles.form_navbar}>
-                    <div>
-                        <p>Stays</p>
-                        <p>Flights</p>
-                        <p>Cars</p>
-                        <p>Packages</p>
-                        <p>Things to do</p>
-                        <p>Cruises</p>
-                    </div>
-                    <hr />
-                </div>
-                <div className={styles.form_start}>
-                    <form>
-                        <div>
-                            <div>
-                                <Box w="90%" m="auto">
-                                    <InputGroup>
-                                        <InputLeftElement
-                                            pointerEvents='none'
-                                            children={<GoLocation color='gray.300' />}
-                                        />
-                                        <Input variant="outline" type='location' placeholder='Going to' />
-                                    </InputGroup>
-                                </Box>
-                            </div>
-                            <div>
-                                <InputGroup w="80%" m="20px 50px">
-                                    <InputLeftElement
-                                        pointerEvents='none'
-                                        children={<BsCalendarCheck color='gray.300' />}
-                                    />
-                                    <Input variant="outline" type='date' placeholder='check in' />
-                                </InputGroup>
-                            </div>
-                            <div>
-                                <InputGroup w="80%" m="20px 30px">
-                                    <InputLeftElement
-                                        pointerEvents='none'
-                                        children={<BsCalendarCheck color='gray.300' />}
-                                    />
-                                    <Input variant="outline" type='date' placeholder='check in' />
-                                </InputGroup>
-                            </div>
-                            <div>
-                                <InputGroup w="90%" m="10px">
-                                    <InputLeftElement
-                                        pointerEvents='none'
-                                        children={<BsPersonFill color='gray.300' />}
-                                    />
-                                    <Input variant="outline" type='select' placeholder='Travelers' />
-                                </InputGroup>
-                            </div>
-                        </div>
-                        <div>
-                            <div>
-                                <input type="checkbox" />
-                                <label>Add a flight</label>
-                            </div>
-                            <div>
-                                <input type="checkbox" />
-                                <label>Add a car</label>
-                            </div>
-                        </div>
-                        <Button variant="solid"><Link to="/products">Search</Link></Button>
-                    </form>
-                </div>
-            </div>
+  return (
+    <div className={styles.form_main}>
+      {/* <div className={styles.form_container}> */}
+      <VStack className={styles.form_container}>
+        <Hide below='md'>
+        <div className={styles.form_navbar}>
+          <div>
+            <p>Stays</p>
+            <p>Flights</p>
+            <p>Cars</p>
+            <p>Packages</p>
+            <p>Things to do</p>
+            <p>Cruises</p>
+          </div>
         </div>
-    )
-}
+        </Hide>
+        <div className={styles.form_start}>
+                <Grid templateColumns={{base:'repeat(1,1fr)',md:'repeat(2, 1fr)'}} gap='4'>
+                <InputGroup>
+                  <InputLeftElement
+                    pointerEvents="none"
+                    children={<GoLocation color="gray.300" />}
+                  />
+                  <Input
+                    variant="outline"
+                    type="location"
+                    placeholder="Going to"
+                  />
+                </InputGroup>
+              <InputGroup>
+                <InputLeftElement
+                  pointerEvents="none"
+                  children={<BsCalendarCheck color="gray.300" />}
+                />
+                <Input variant="outline" type="date" placeholder="check in" />
+              </InputGroup>
+              <InputGroup>
+                <InputLeftElement
+                  pointerEvents="none"
+                  children={<BsCalendarCheck color="gray.300" />}
+                />
+                <Input variant="outline" type="date" placeholder="check in" />
+              </InputGroup>
+                <InputGroup>
+                  <InputLeftElement
+                    pointerEvents="none"
+                    children={<BsPersonFill color="gray.300" />}
+                  />
+                  <Input
+                    variant="outline"
+                    type="select"
+                    placeholder="Travelers"
+                  />
+                </InputGroup>
+                </Grid>
+                <Flex marginTop={4}>
+                    <Flex>
+                    <input type="checkbox" />
+                <label style={{marginLeft:'0.5rem'}}>Add a flight</label>
+                    </Flex>
+                    <Flex marginLeft={4}>
+                    <input type="checkbox" />
+                <label style={{marginLeft:'0.5rem'}}>Add a car</label>
+                    </Flex>
+                </Flex>
+                <Link to="/products">
+            <Button variant="solid" colorScheme={'blue'} w={{base:'100%',md:'20%'}} mt={{base:'1rem'}}>
+              Search
+            </Button>
+            </Link>
+        </div>
+      </VStack>
+    </div>
+  );
+};
 
 export default HomeForm;
