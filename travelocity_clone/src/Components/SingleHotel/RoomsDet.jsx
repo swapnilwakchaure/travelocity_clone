@@ -18,6 +18,7 @@ import { MdWaves } from "react-icons/md";
 
 import { FaBed, FaPaypal } from "react-icons/fa";
 import PaymentModal from "./PaymentModal";
+import { Link } from "react-router-dom";
 const RoomsDet = ({ rooms }) => {
     const today = new Date();
 const date = today.toLocaleDateString();
@@ -55,7 +56,9 @@ const date = today.toLocaleDateString();
 
         <Text ml={2} fontSize={"2xl"} fontWeight="bold">₹{room.roomPrice}</Text>
           <Text color="blue.400">Price Details {">"} </Text>
-          <Button colorScheme={'blue'}>Reserve</Button>
+          <Link to='/checkout' style={{width:'100%'}}>
+          <Button style={{width:'100%'}} colorScheme={'blue'}>Reserve</Button>
+          </Link>
           </VStack>
         ))}
       </Grid>
