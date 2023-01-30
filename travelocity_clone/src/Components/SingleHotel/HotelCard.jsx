@@ -8,7 +8,6 @@ import { useLocation } from 'react-router-dom'
 const HotelCard = () => {
   const location = useLocation();
 const item = location.state;
-console.log(item);
   return (
     <Box w={{base:'95%',md:'80%'}} m="auto" pt={5} bg='Gray.200' overflow={'hidden'}>
       <Flex  pb='5' w="98%" m="auto" h={45} alignItems='center'>

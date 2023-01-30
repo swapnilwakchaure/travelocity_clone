@@ -14,6 +14,7 @@ import {
   Flex,
   Link,
   Box,
+  useToast,
 } from "@chakra-ui/react";
 import {
   getAuth,
@@ -26,6 +27,7 @@ import { loginRequest, loginSuccess, loginError } from './../../Redux/AuthReduce
 
 const Login = () => {
   const navigate = useNavigate()
+  const toast = useToast()
   const [email, setemail] = useState("");
   const [password, setpassword] = useState("");
   const [show, setShow] = useState(false);
@@ -49,7 +51,13 @@ const Login = () => {
         };
         dispatch(loginRequest());
         dispatch(loginSuccess(payload));
-        navigate('/')
+        toast({
+          title: 'Login Successful',
+          status: 'success',
+          position: "top",
+          duration: 4000,
+        })
+        navigate(-1)
         
       })
       .catch((error) => {
@@ -57,6 +65,12 @@ const Login = () => {
         const errorCode = error.code;
         const errorMessage = error.message;
         dispatch(loginError());
+        toast({
+          title: 'Invalid Credentials',
+          status: 'error',
+          position: "top",
+          duration: 4000,
+        })
       });
   };
   const passwordChangeFn = (e) => {

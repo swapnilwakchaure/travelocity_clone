@@ -27,6 +27,7 @@ import {
 import { userSignout } from "../../Redux/AuthReducer/action";
 import { loginRequest } from './../../Redux/AuthReducer/action';
 import Signout from "../Signout/Signout";
+import { getDataLocal } from "../../LocalStorage/usernamePassword";
 
 
 const HomeAccount = ({ login }) => {
@@ -38,6 +39,7 @@ const HomeAccount = ({ login }) => {
   const handleClick = () => setShow(!show);
   const userAuth = useSelector((store) => store.auth);
   const { isAuth, username } = userAuth;
+  const localUser = getDataLocal('userDetails')
   const auth = getAuth(app);
   const userFn = () => {
     signOut(auth)
@@ -56,7 +58,7 @@ const HomeAccount = ({ login }) => {
         // An error happened.
       });
   };
-  if(!isAuth) {
+  if(!localUser) {
     return (
       <>
         <Button color='white'

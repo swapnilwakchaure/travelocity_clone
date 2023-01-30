@@ -90,9 +90,11 @@ const HomeForm = () => {
                 <label style={{marginLeft:'0.5rem'}}>Add a car</label>
                     </Flex>
                 </Flex>
+                <Link to="/products">
             <Button variant="solid" colorScheme={'blue'} w={{base:'100%',md:'20%'}} mt={{base:'1rem'}}>
-              <Link to="/products">Search</Link>
+              Search
             </Button>
+            </Link>
         </div>
       </VStack>
     </div>

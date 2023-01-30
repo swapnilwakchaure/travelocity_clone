@@ -45,7 +45,7 @@ function Products(){
                 <Box m='auto' mt='2%' w={['90%','90%','24%','24%']} sx={{boxShadow:'rgba(99, 99, 99, 0.2) 0px 2px 8px 0px'}} p='5'>
                     <div>
                         <Map/>
-                        <Search/>
+                        {/* <Search/> */}
                         <Filter/>    
                     </div>
                 </Box>

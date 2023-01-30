@@ -25,8 +25,10 @@ import {
 } from "@chakra-ui/react";
 import { userSignout } from "../../Redux/AuthReducer/action";
 import { loginRequest } from './../../Redux/AuthReducer/action';
+import { getDataLocal } from "../../LocalStorage/usernamePassword";
 
 function Signout() {
+  const localUser = getDataLocal('userDetails')
   const toast = useToast()
     const { isOpen, onOpen, onClose } = useDisclosure();
     const dispatch = useDispatch()
@@ -40,19 +42,24 @@ function Signout() {
             toast({
               title: 'Account signout successfully',
               status: 'success',
-              duration: 2000,
+              position: "top",
+              duration: 4000,
             })
             onClose()
             dispatch(loginRequest());
             dispatch(userSignout());
-            navigate('/')
+            if(window.location.pathname == '/checkout'){
+              navigate('/')
+            }
+            navigate(window.location.pathname)
+            localStorage.removeItem("userDetails")
           })
           .catch((error) => {
             // An error happened.
             toast({
               title: 'Something went wrong',
               status: 'error',
-              duration: 2000,
+              duration: 4000,
             })
           });
       };
@@ -63,7 +70,7 @@ function Signout() {
           backgroundColor="#333"
           _hover={{ bg: "color: rgb(92, 92, 92)" }}
         >
-          {username}
+          {localUser.email}
         </Button>
         <Modal isOpen={isOpen} onClose={onClose}>
           <ModalOverlay />

@@ -5,7 +5,6 @@ import {MdLocationOn} from "react-icons/md"
 import {AiFillCar} from "react-icons/ai"
 import GoogleMap from '../GoogleMapForSingleProduct/GoogleMap'
 const Location = ({item}) => {
-  console.log(item);
   return (
       <VStack textAlign='justify'>
       <Text fontSize={'2xl'} fontWeight='bold'>

@@ -22,7 +22,6 @@ import { Link } from "react-router-dom";
 const RoomsDet = ({ rooms }) => {
     const today = new Date();
 const date = today.toLocaleDateString();
-  console.log(rooms);
   return (
     <Box align="left" mt={3}>
       <Grid templateColumns={{base:'repeat(1,1fr)',md:'repeat(2,1fr)'}} gap={5}>
@@ -56,7 +55,7 @@ const date = today.toLocaleDateString();
 
         <Text ml={2} fontSize={"2xl"} fontWeight="bold">₹{room.roomPrice}</Text>
           <Text color="blue.400">Price Details {">"} </Text>
-          <Link to='/checkout' style={{width:'100%'}}>
+          <Link to='/checkout' state={room} style={{width:'100%'}}>
           <Button style={{width:'100%'}} colorScheme={'blue'}>Reserve</Button>
           </Link>
           </VStack>
