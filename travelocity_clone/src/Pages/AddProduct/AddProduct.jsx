@@ -1,12 +1,13 @@
 import { useState } from "react";
 import { addData } from "./../../Redux/GetDataReducer/action";
-import {Alert, Box, Button, Input, AlertIcon, AlertTitle} from '@chakra-ui/react'
+import {Alert, Box, Button, Input, AlertIcon, AlertTitle, useToast} from '@chakra-ui/react'
 import { useDispatch } from "react-redux";
 
 
   
 
 function AddProduct(){
+  const toast = useToast()
     const [nameOfHotel,setNameOfHotel] = useState('')
     const [priceOfHotel,setPriceOfHotel] = useState('')
     const [currencyOfHotel,setCurrencyOfHotel] = useState('')
@@ -539,7 +540,11 @@ function AddProduct(){
             setPhoneNumberOfHotel('')
             setPriceOfHotel('')
             setStarOfHotel('')
-            alert('Data successfully added')
+            toast({
+              title: 'Data added successfully',
+              status: 'success',
+              duration: 2000,
+            })
       }
 
 

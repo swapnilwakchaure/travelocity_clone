@@ -21,6 +21,7 @@ import {
   InputGroup,
   Text,
   InputRightElement,
+  useToast,
 } from "@chakra-ui/react";
 
 import { userSignout } from "../../Redux/AuthReducer/action";
@@ -29,6 +30,7 @@ import Signout from "../Signout/Signout";
 
 
 const HomeAccount = ({ login }) => {
+  const toast = useToast()
     const dispatch = useDispatch()
     const navigate = useNavigate()
   const { isOpen, onOpen, onClose } = useDisclosure();
@@ -40,7 +42,11 @@ const HomeAccount = ({ login }) => {
   const userFn = () => {
     signOut(auth)
       .then(() => {
-        alert("Successfully signout");
+        toast({
+          title: 'Account signout successfully',
+          status: 'success',
+          duration: 2000,
+        })
         onClose()
         dispatch(loginRequest());
         dispatch(userSignout());

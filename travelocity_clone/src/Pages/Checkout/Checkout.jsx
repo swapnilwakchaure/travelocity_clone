@@ -52,10 +52,12 @@ import {
   AlertDialogBody,
   Box,
   useDisclosure,
+  useToast,
 } from "@chakra-ui/react";
 import { useNavigate } from "react-router-dom";
 
 const Checkout = () => {
+  const toast = useToast()
   const navigate = useNavigate()
   const cardNameHardcoded = "DHANUSH";
   const cardNumHardcoded = "1111222233334444";
@@ -66,22 +68,42 @@ const Checkout = () => {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const [plusValue, plusSetValue] = useState("yesPlus");
   const completeBooking = () =>{
-    if(cardNameHardcoded == cardName){
-      if(cardNumHardcoded == cardNum){
-        if(cvvHardcoded == cvv){
-          alert("Payment Successful")
+    if(cardName != ""){
+      if(cardNum.length == 16){
+        if(cvv.length == 3){
+          toast({
+            description: "Payment Successfull",
+            status: "success",
+            position: "top",
+            duration: 4000,
+          });
           navigate('/')
         }
         else{
-          alert("Invalid credentials")
+          toast({
+            description: "Invalid CVV",
+            status: "error",
+            position: "top",
+            duration: 3000,
+          });
         }
       }
       else{
-        alert("Invalid credentials")
+        toast({
+          description: "Card number has to be 16 digits",
+          status: "error",
+          position: "top",
+          duration: 3000,
+        });
       }
     }
     else{
-      alert("Invalid credentials")
+      toast({
+        description: "Enter a valid card name",
+        status: "error",
+        position: "top",
+        duration: 3000,
+      });
     }
   }
   return (

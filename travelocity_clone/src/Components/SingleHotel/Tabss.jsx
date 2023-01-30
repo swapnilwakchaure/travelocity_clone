@@ -3,7 +3,7 @@ import { Tabs, TabList, TabPanels, Tab, TabPanel } from '@chakra-ui/react'
 import Overview from './Overview'
 import Rooms from './Rooms'
 import Location from './Location'
-const Tabss = () => {
+const Tabss = ({item}) => {
   return (
     <div style={{ width:"100%"}}>
       <Tabs size="lg" variant="unstyled">
@@ -16,13 +16,13 @@ const Tabss = () => {
 
   <TabPanels>
     <TabPanel>
-      <Overview/>
+      <Overview item={item}/>
     </TabPanel>
     <TabPanel>
-      <Rooms/>
+      <Rooms item={item}/>
     </TabPanel>
     <TabPanel>
-      <Location/>
+      <Location item={item} />
     </TabPanel>
     
   </TabPanels>

@@ -21,11 +21,13 @@ import {
   InputGroup,
   Text,
   InputRightElement,
+  useToast,
 } from "@chakra-ui/react";
 import { userSignout } from "../../Redux/AuthReducer/action";
 import { loginRequest } from './../../Redux/AuthReducer/action';
 
 function Signout() {
+  const toast = useToast()
     const { isOpen, onOpen, onClose } = useDisclosure();
     const dispatch = useDispatch()
     const navigate = useNavigate()
@@ -35,7 +37,11 @@ function Signout() {
     const userFn = () => {
         signOut(auth)
           .then(() => {
-            alert("Successfully signout");
+            toast({
+              title: 'Account signout successfully',
+              status: 'success',
+              duration: 2000,
+            })
             onClose()
             dispatch(loginRequest());
             dispatch(userSignout());
@@ -43,6 +49,11 @@ function Signout() {
           })
           .catch((error) => {
             // An error happened.
+            toast({
+              title: 'Something went wrong',
+              status: 'error',
+              duration: 2000,
+            })
           });
       };
   return (

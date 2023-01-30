@@ -5,8 +5,8 @@ import { Grid } from "@chakra-ui/react";
 
 export function Footer() {
   return (
-    <Grid
-      templateColumns={{ base: "repeat(2,1fr)", md: "repeat(5, 1fr)" }}
+    <Grid w='100%'
+      templateColumns={{ base: "repeat(2,1fr)", md: "repeat(4, 1fr)" }}
       p="2rem"
     >
       <div>

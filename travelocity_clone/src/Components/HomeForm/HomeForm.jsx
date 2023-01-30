@@ -9,14 +9,20 @@ import {
   Grid,
   Flex,
   Hide,
+  useToast,
 } from "@chakra-ui/react";
 import { GoLocation } from "react-icons/go";
 import { BsCalendarCheck, BsPersonFill } from "react-icons/bs";
 import { Link } from "react-router-dom";
 
 const HomeForm = () => {
+  const toast = useToast()
   const handleFormClick = () => {
-    alert("form submit");
+    toast({
+      title: 'Details added',
+      status: 'success',
+      duration: 2000,
+    })
   };
 
   return (
